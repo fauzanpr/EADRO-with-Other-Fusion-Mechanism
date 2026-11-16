@@ -1,0 +1,4 @@
+,n,tanpa ablasi,memory di BIANG saja,memory di service LAIN saja,cpu di BIANG saja,cpu di service LAIN saja,network di BIANG saja,network di service LAIN saja
+cpu_load,1496,99.3,95.3,44.2,96.3,75.1,99.3,99.7
+network_delay,1518,93.9,92.7,12.7,93.0,66.3,93.9,94.1
+network_loss,1480,76.4,76.0,12.7,76.7,62.9,77.2,89.2

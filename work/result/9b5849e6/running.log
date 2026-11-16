@@ -1,0 +1,61 @@
+2026-11-16 01:59:01,462 P32590 INFO Using CPU...
+2026-11-16 01:59:01,462 P32590 INFO Load from ../chunks/A1/random_original
+2026-11-16 02:00:20,002 P32590 INFO Epoch 1/50, training loss: 1.36740 [72.71s]
+2026-11-16 02:01:33,394 P32590 INFO Epoch 2/50, training loss: 0.39313 [73.39s]
+2026-11-16 02:02:46,030 P32590 INFO Epoch 3/50, training loss: 0.23290 [72.64s]
+2026-11-16 02:03:58,821 P32590 INFO Epoch 4/50, training loss: 0.18019 [72.79s]
+2026-11-16 02:05:11,572 P32590 INFO Epoch 5/50, training loss: 0.17453 [72.75s]
+2026-11-16 02:06:24,293 P32590 INFO Epoch 6/50, training loss: 0.15896 [72.72s]
+2026-11-16 02:07:40,445 P32590 INFO Epoch 7/50, training loss: 0.14916 [76.15s]
+2026-11-16 02:08:53,126 P32590 INFO Epoch 8/50, training loss: 0.14062 [72.68s]
+2026-11-16 02:10:05,842 P32590 INFO Epoch 9/50, training loss: 0.14427 [72.72s]
+2026-11-16 02:10:41,805 P32590 INFO Val -- F1: 0.9420, Rec: 0.9781, Pre: 0.9085, HR@1: 0.6312, ndcg@1: 0.6312, HR@3: 0.6350, ndcg@3: 0.6336, HR@5: 0.6352, ndcg@5: 0.6337, F1(std): 0.9134, Rec(std): 0.9666, Pre(std): 0.8657, HR@1(std): 0.9605, ndcg@1(std): 0.9605, HR@3(std): 0.9663, ndcg@3(std): 0.9641, HR@5(std): 0.9666, ndcg@5(std): 0.9642
+2026-11-16 02:11:17,795 P32590 INFO Test -- F1: 0.9420, Rec: 0.9781, Pre: 0.9085, HR@1: 0.6312, ndcg@1: 0.6312, HR@3: 0.6350, ndcg@3: 0.6336, HR@5: 0.6352, ndcg@5: 0.6337, F1(std): 0.9134, Rec(std): 0.9666, Pre(std): 0.8657, HR@1(std): 0.9605, ndcg@1(std): 0.9605, HR@3(std): 0.9663, ndcg@3(std): 0.9641, HR@5(std): 0.9666, ndcg@5(std): 0.9642
+2026-11-16 02:12:30,314 P32590 INFO Epoch 10/50, training loss: 0.13489 [72.52s]
+2026-11-16 02:13:42,849 P32590 INFO Epoch 11/50, training loss: 0.12724 [72.53s]
+2026-11-16 02:14:55,471 P32590 INFO Epoch 12/50, training loss: 0.12792 [72.62s]
+2026-11-16 02:16:08,227 P32590 INFO Epoch 13/50, training loss: 0.12150 [72.76s]
+2026-11-16 02:17:20,807 P32590 INFO Epoch 14/50, training loss: 0.11655 [72.58s]
+2026-11-16 02:18:33,742 P32590 INFO Epoch 15/50, training loss: 0.11591 [72.93s]
+2026-11-16 02:19:46,355 P32590 INFO Epoch 16/50, training loss: 0.13225 [72.61s]
+2026-11-16 02:20:59,344 P32590 INFO Epoch 17/50, training loss: 0.10794 [72.99s]
+2026-11-16 02:22:12,079 P32590 INFO Epoch 18/50, training loss: 0.10722 [72.73s]
+2026-11-16 02:23:24,674 P32590 INFO Epoch 19/50, training loss: 0.10880 [72.59s]
+2026-11-16 02:24:00,257 P32590 INFO Val -- F1: 0.9456, Rec: 0.9579, Pre: 0.9337, HR@1: 0.5933, ndcg@1: 0.5933, HR@3: 0.5967, ndcg@3: 0.5954, HR@5: 0.5967, ndcg@5: 0.5954, F1(std): 0.9155, Rec(std): 0.9340, Pre(std): 0.8977, HR@1(std): 0.9286, ndcg@1(std): 0.9286, HR@3(std): 0.9339, ndcg@3(std): 0.9319, HR@5(std): 0.9340, ndcg@5(std): 0.9319
+2026-11-16 02:25:13,003 P32590 INFO Epoch 20/50, training loss: 0.09984 [72.75s]
+2026-11-16 02:26:25,654 P32590 INFO Epoch 21/50, training loss: 0.10124 [72.65s]
+2026-11-16 02:27:38,322 P32590 INFO Epoch 22/50, training loss: 0.09664 [72.67s]
+2026-11-16 02:28:50,987 P32590 INFO Epoch 23/50, training loss: 0.08954 [72.67s]
+2026-11-16 02:30:03,657 P32590 INFO Epoch 24/50, training loss: 0.09198 [72.67s]
+2026-11-16 02:31:17,136 P32590 INFO Epoch 25/50, training loss: 0.09058 [73.48s]
+2026-11-16 02:32:29,714 P32590 INFO Epoch 26/50, training loss: 0.08451 [72.58s]
+2026-11-16 02:33:42,968 P32590 INFO Epoch 27/50, training loss: 0.08356 [73.25s]
+2026-11-16 02:34:55,614 P32590 INFO Epoch 28/50, training loss: 0.08112 [72.65s]
+2026-11-16 02:36:08,370 P32590 INFO Epoch 29/50, training loss: 0.07672 [72.76s]
+2026-11-16 02:36:45,322 P32590 INFO Val -- F1: 0.9638, Rec: 0.9895, Pre: 0.9395, HR@1: 0.6232, ndcg@1: 0.6232, HR@3: 0.6257, ndcg@3: 0.6247, HR@5: 0.6257, ndcg@5: 0.6247, F1(std): 0.9440, Rec(std): 0.9834, Pre(std): 0.9076, HR@1(std): 0.9793, ndcg@1(std): 0.9793, HR@3(std): 0.9832, ndcg@3(std): 0.9817, HR@5(std): 0.9833, ndcg@5(std): 0.9817
+2026-11-16 02:37:57,903 P32590 INFO Epoch 30/50, training loss: 0.08695 [72.58s]
+2026-11-16 02:39:10,768 P32590 INFO Epoch 31/50, training loss: 0.07465 [72.86s]
+2026-11-16 02:40:23,411 P32590 INFO Epoch 32/50, training loss: 0.06956 [72.64s]
+2026-11-16 02:41:36,380 P32590 INFO Epoch 33/50, training loss: 0.06784 [72.97s]
+2026-11-16 02:42:49,030 P32590 INFO Epoch 34/50, training loss: 0.06857 [72.65s]
+2026-11-16 02:44:01,637 P32590 INFO Epoch 35/50, training loss: 0.07944 [72.61s]
+2026-11-16 02:45:14,558 P32590 INFO Epoch 36/50, training loss: 0.06638 [72.92s]
+2026-11-16 02:46:27,431 P32590 INFO Epoch 37/50, training loss: 0.06464 [72.87s]
+2026-11-16 02:47:39,919 P32590 INFO Epoch 38/50, training loss: 0.06548 [72.49s]
+2026-11-16 02:48:52,597 P32590 INFO Epoch 39/50, training loss: 0.06239 [72.68s]
+2026-11-16 02:49:28,536 P32590 INFO Val -- F1: 0.9747, Rec: 0.9819, Pre: 0.9675, HR@1: 0.5990, ndcg@1: 0.5990, HR@3: 0.5999, ndcg@3: 0.5996, HR@5: 0.5999, ndcg@5: 0.5996, F1(std): 0.9592, Rec(std): 0.9708, Pre(std): 0.9479, HR@1(std): 0.9693, ndcg@1(std): 0.9693, HR@3(std): 0.9708, ndcg@3(std): 0.9702, HR@5(std): 0.9708, ndcg@5(std): 0.9702
+2026-11-16 02:50:41,406 P32590 INFO Epoch 40/50, training loss: 0.06072 [72.87s]
+2026-11-16 02:51:54,245 P32590 INFO Epoch 41/50, training loss: 0.05593 [72.84s]
+2026-11-16 02:53:06,792 P32590 INFO Epoch 42/50, training loss: 0.06374 [72.55s]
+2026-11-16 02:54:19,402 P32590 INFO Epoch 43/50, training loss: 0.05390 [72.61s]
+2026-11-16 02:55:32,786 P32590 INFO Epoch 44/50, training loss: 0.07027 [73.38s]
+2026-11-16 02:56:46,005 P32590 INFO Epoch 45/50, training loss: 0.05674 [73.22s]
+2026-11-16 02:57:58,661 P32590 INFO Epoch 46/50, training loss: 0.05538 [72.65s]
+2026-11-16 02:59:11,625 P32590 INFO Epoch 47/50, training loss: 0.05373 [72.96s]
+2026-11-16 03:00:24,362 P32590 INFO Epoch 48/50, training loss: 0.05114 [72.74s]
+2026-11-16 03:01:37,214 P32590 INFO Epoch 49/50, training loss: 0.04907 [72.85s]
+2026-11-16 03:02:13,420 P32590 INFO Val -- F1: 0.9777, Rec: 0.9773, Pre: 0.9781, HR@1: 0.5881, ndcg@1: 0.5881, HR@3: 0.5886, ndcg@3: 0.5884, HR@5: 0.5886, ndcg@5: 0.5884, F1(std): 0.9635, Rec(std): 0.9628, Pre(std): 0.9642, HR@1(std): 0.9620, ndcg@1(std): 0.9620, HR@3(std): 0.9628, ndcg@3(std): 0.9625, HR@5(std): 0.9628, ndcg@5(std): 0.9625
+2026-11-16 03:03:26,104 P32590 INFO Epoch 50/50, training loss: 0.04783 [72.68s]
+2026-11-16 03:03:26,104 P32590 INFO * Best result got at epoch 9 with validation HR@1: 0.6312
+2026-11-16 03:03:26,467 P32590 INFO Efficiency -- params_total: 66050, params_fusion: 18560, infer_ms_per_window: 0.2699, peak_rss_mb: 3565
+2026-11-16 03:03:26,467 P32590 INFO Current hash_id 9b5849e6

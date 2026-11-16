@@ -1,0 +1,61 @@
+2026-11-16 00:48:51,975 P25190 INFO Using CPU...
+2026-11-16 00:48:51,975 P25190 INFO Load from ../chunks/A1/random_original
+2026-11-16 00:50:33,119 P25190 INFO Epoch 1/50, training loss: 1.45295 [96.76s]
+2026-11-16 00:52:09,408 P25190 INFO Epoch 2/50, training loss: 0.44482 [96.29s]
+2026-11-16 00:53:28,392 P25190 INFO Epoch 3/50, training loss: 0.26288 [78.98s]
+2026-11-16 00:54:45,805 P25190 INFO Epoch 4/50, training loss: 0.20064 [77.41s]
+2026-11-16 00:56:20,711 P25190 INFO Epoch 5/50, training loss: 0.17389 [94.91s]
+2026-11-16 00:57:59,257 P25190 INFO Epoch 6/50, training loss: 0.16078 [98.55s]
+2026-11-16 00:59:35,169 P25190 INFO Epoch 7/50, training loss: 0.14532 [95.91s]
+2026-11-16 01:01:05,673 P25190 INFO Epoch 8/50, training loss: 0.14737 [90.50s]
+2026-11-16 01:02:35,590 P25190 INFO Epoch 9/50, training loss: 0.12831 [89.92s]
+2026-11-16 01:03:20,097 P25190 INFO Val -- F1: 0.9496, Rec: 0.9876, Pre: 0.9144, HR@1: 0.6373, ndcg@1: 0.6373, HR@3: 0.6410, ndcg@3: 0.6396, HR@5: 0.6411, ndcg@5: 0.6396, F1(std): 0.9244, Rec(std): 0.9811, Pre(std): 0.8739, HR@1(std): 0.9752, ndcg@1(std): 0.9752, HR@3(std): 0.9807, ndcg@3(std): 0.9786, HR@5(std): 0.9809, ndcg@5(std): 0.9787
+2026-11-16 01:04:06,565 P25190 INFO Test -- F1: 0.9496, Rec: 0.9876, Pre: 0.9144, HR@1: 0.6373, ndcg@1: 0.6373, HR@3: 0.6410, ndcg@3: 0.6396, HR@5: 0.6411, ndcg@5: 0.6396, F1(std): 0.9244, Rec(std): 0.9811, Pre(std): 0.8739, HR@1(std): 0.9752, ndcg@1(std): 0.9752, HR@3(std): 0.9807, ndcg@3(std): 0.9786, HR@5(std): 0.9809, ndcg@5(std): 0.9787
+2026-11-16 01:05:37,290 P25190 INFO Epoch 10/50, training loss: 0.13304 [90.71s]
+2026-11-16 01:07:06,624 P25190 INFO Epoch 11/50, training loss: 0.11454 [89.33s]
+2026-11-16 01:08:36,082 P25190 INFO Epoch 12/50, training loss: 0.12537 [89.46s]
+2026-11-16 01:10:07,552 P25190 INFO Epoch 13/50, training loss: 0.11251 [91.47s]
+2026-11-16 01:11:37,392 P25190 INFO Epoch 14/50, training loss: 0.11922 [89.84s]
+2026-11-16 01:13:06,409 P25190 INFO Epoch 15/50, training loss: 0.10202 [89.02s]
+2026-11-16 01:14:35,634 P25190 INFO Epoch 16/50, training loss: 0.09782 [89.22s]
+2026-11-16 01:16:07,070 P25190 INFO Epoch 17/50, training loss: 0.09831 [91.44s]
+2026-11-16 01:17:36,086 P25190 INFO Epoch 18/50, training loss: 0.09490 [89.02s]
+2026-11-16 01:19:04,943 P25190 INFO Epoch 19/50, training loss: 0.09271 [88.86s]
+2026-11-16 01:19:47,906 P25190 INFO Val -- F1: 0.9642, Rec: 0.9837, Pre: 0.9455, HR@1: 0.6147, ndcg@1: 0.6147, HR@3: 0.6158, ndcg@3: 0.6154, HR@5: 0.6159, ndcg@5: 0.6154, F1(std): 0.9441, Rec(std): 0.9743, Pre(std): 0.9157, HR@1(std): 0.9724, ndcg@1(std): 0.9724, HR@3(std): 0.9741, ndcg@3(std): 0.9734, HR@5(std): 0.9742, ndcg@5(std): 0.9735
+2026-11-16 01:21:00,306 P25190 INFO Epoch 20/50, training loss: 0.08674 [72.40s]
+2026-11-16 01:22:12,752 P25190 INFO Epoch 21/50, training loss: 0.08814 [72.45s]
+2026-11-16 01:23:25,463 P25190 INFO Epoch 22/50, training loss: 0.08844 [72.71s]
+2026-11-16 01:24:37,585 P25190 INFO Epoch 23/50, training loss: 0.07865 [72.12s]
+2026-11-16 01:25:49,912 P25190 INFO Epoch 24/50, training loss: 0.07552 [72.33s]
+2026-11-16 01:27:02,136 P25190 INFO Epoch 25/50, training loss: 0.07890 [72.22s]
+2026-11-16 01:28:14,401 P25190 INFO Epoch 26/50, training loss: 0.07806 [72.26s]
+2026-11-16 01:29:26,481 P25190 INFO Epoch 27/50, training loss: 0.07738 [72.08s]
+2026-11-16 01:30:38,990 P25190 INFO Epoch 28/50, training loss: 0.06670 [72.51s]
+2026-11-16 01:31:51,179 P25190 INFO Epoch 29/50, training loss: 0.06841 [72.19s]
+2026-11-16 01:32:27,956 P25190 INFO Val -- F1: 0.9671, Rec: 0.9836, Pre: 0.9512, HR@1: 0.6105, ndcg@1: 0.6105, HR@3: 0.6119, ndcg@3: 0.6114, HR@5: 0.6120, ndcg@5: 0.6114, F1(std): 0.9482, Rec(std): 0.9739, Pre(std): 0.9239, HR@1(std): 0.9716, ndcg@1(std): 0.9716, HR@3(std): 0.9738, ndcg@3(std): 0.9730, HR@5(std): 0.9739, ndcg@5(std): 0.9730
+2026-11-16 01:33:40,148 P25190 INFO Epoch 30/50, training loss: 0.06901 [72.19s]
+2026-11-16 01:34:52,115 P25190 INFO Epoch 31/50, training loss: 0.07099 [71.97s]
+2026-11-16 01:36:04,547 P25190 INFO Epoch 32/50, training loss: 0.06272 [72.43s]
+2026-11-16 01:37:16,734 P25190 INFO Epoch 33/50, training loss: 0.06100 [72.19s]
+2026-11-16 01:38:28,880 P25190 INFO Epoch 34/50, training loss: 0.06608 [72.15s]
+2026-11-16 01:39:40,925 P25190 INFO Epoch 35/50, training loss: 0.06692 [72.04s]
+2026-11-16 01:40:53,001 P25190 INFO Epoch 36/50, training loss: 0.05654 [72.08s]
+2026-11-16 01:42:05,159 P25190 INFO Epoch 37/50, training loss: 0.06285 [72.16s]
+2026-11-16 01:43:17,229 P25190 INFO Epoch 38/50, training loss: 0.06102 [72.07s]
+2026-11-16 01:44:29,243 P25190 INFO Epoch 39/50, training loss: 0.05580 [72.01s]
+2026-11-16 01:45:05,157 P25190 INFO Val -- F1: 0.9747, Rec: 0.9741, Pre: 0.9754, HR@1: 0.5865, ndcg@1: 0.5865, HR@3: 0.5870, ndcg@3: 0.5868, HR@5: 0.5870, ndcg@5: 0.5868, F1(std): 0.9588, Rec(std): 0.9578, Pre(std): 0.9598, HR@1(std): 0.9569, ndcg@1(std): 0.9569, HR@3(std): 0.9576, ndcg@3(std): 0.9574, HR@5(std): 0.9577, ndcg@5(std): 0.9574
+2026-11-16 01:46:17,754 P25190 INFO Epoch 40/50, training loss: 0.05287 [72.60s]
+2026-11-16 01:47:30,067 P25190 INFO Epoch 41/50, training loss: 0.05472 [72.31s]
+2026-11-16 01:48:42,188 P25190 INFO Epoch 42/50, training loss: 0.05264 [72.12s]
+2026-11-16 01:49:54,825 P25190 INFO Epoch 43/50, training loss: 0.05077 [72.64s]
+2026-11-16 01:51:07,060 P25190 INFO Epoch 44/50, training loss: 0.04787 [72.23s]
+2026-11-16 01:52:19,371 P25190 INFO Epoch 45/50, training loss: 0.04429 [72.31s]
+2026-11-16 01:53:31,573 P25190 INFO Epoch 46/50, training loss: 0.05224 [72.20s]
+2026-11-16 01:54:43,639 P25190 INFO Epoch 47/50, training loss: 0.04781 [72.07s]
+2026-11-16 01:55:56,162 P25190 INFO Epoch 48/50, training loss: 0.04397 [72.52s]
+2026-11-16 01:57:08,520 P25190 INFO Epoch 49/50, training loss: 0.04290 [72.36s]
+2026-11-16 01:57:45,186 P25190 INFO Val -- F1: 0.9772, Rec: 0.9744, Pre: 0.9800, HR@1: 0.5797, ndcg@1: 0.5797, HR@3: 0.5844, ndcg@3: 0.5826, HR@5: 0.5844, ndcg@5: 0.5826, F1(std): 0.9625, Rec(std): 0.9580, Pre(std): 0.9671, HR@1(std): 0.9501, ndcg@1(std): 0.9501, HR@3(std): 0.9578, ndcg@3(std): 0.9548, HR@5(std): 0.9578, ndcg@5(std): 0.9548
+2026-11-16 01:58:57,290 P25190 INFO Epoch 50/50, training loss: 0.05974 [72.10s]
+2026-11-16 01:58:57,291 P25190 INFO * Best result got at epoch 9 with validation HR@1: 0.6373
+2026-11-16 01:58:57,688 P25190 INFO Efficiency -- params_total: 66050, params_fusion: 18560, infer_ms_per_window: 0.2698, peak_rss_mb: 3562
+2026-11-16 01:58:57,689 P25190 INFO Current hash_id 1c9748d6

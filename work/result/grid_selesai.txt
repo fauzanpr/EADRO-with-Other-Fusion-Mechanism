@@ -1,0 +1,18 @@
+leave_event_out 15 concat_glu 42 
+leave_event_out 15 concat_glu 7 
+leave_event_out 15 concat_glu 123 
+within_event 15 concat_glu 42 
+within_event 15 concat_glu 7 
+within_event 15 concat_glu 123 
+A1_T5 within_event 15 concat_glu 42 
+A1_T5 within_event 15 concat_glu 7 
+A1_T5 within_event 15 concat_glu 123 
+random_original 50 concat_glu 42 --select_metric HR@1 --eval_every 10
+random_original 50 concat_glu 7 --select_metric HR@1 --eval_every 10
+random_original 50 concat_glu 123 --select_metric HR@1 --eval_every 10
+within_event 15 concat_fc 42 
+within_event 15 concat_fc 7 
+within_event 15 concat_fc 123 
+leave_event_out 15 concat_fc 42 
+leave_event_out 15 concat_fc 7 
+leave_event_out 15 concat_fc 123 

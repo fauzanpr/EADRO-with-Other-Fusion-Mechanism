@@ -1,0 +1,124 @@
+====================================================================================================
+A. Profil metrics mentah service biang di sekitar gangguan (median |z-robust| antar kejadian)
+====================================================================================================
+Durasi gangguan (detik) per jenis: cpu_load min/med/maks = 601/601/601, network_delay min/med/maks = 601/601/601, network_loss min/med/maks = 601/601/601
+Kontrol = median |z-robust| semua service lain pada offset yang sama (nilai wajar tanpa efek sekitar 0,7)
+
+--- cpu_load (jumlah kejadian 27) — 3 kanal paling responsif: ['cpu_usage_system', 'memory_working_set', 'cpu_usage_user']
+offset terhadap AWAL gangguan (detik; 0 = awal label)
+                    -120..-60  -60..-20  -20..0  0..10  10..30  30..100
+cpu_usage_system         0.00      0.00    0.00  30.12   31.49    29.36
+memory_working_set       0.25      0.24    1.79  31.72   31.11    31.82
+cpu_usage_user           0.00      0.00    0.00  27.48   30.42    31.08
+kontrol                  0.00      0.00    0.00   0.00    0.00     0.00
+offset terhadap AKHIR gangguan (detik; 0 = akhir label)
+                    -30..0  1..10  11..30  31..60  61..120
+cpu_usage_system     31.69   0.00     0.0    0.00     0.00
+memory_working_set   31.00   5.22     1.2    0.69     0.45
+cpu_usage_user       31.14   0.00     0.0    0.00     0.00
+kontrol               0.00   0.00     0.0    0.00     0.00
+
+--- network_delay (jumlah kejadian 27) — 3 kanal paling responsif: ['memory_working_set', 'memory_usage', 'cpu_usage_total']
+offset terhadap AWAL gangguan (detik; 0 = awal label)
+                    -120..-60  -60..-20  -20..0  0..10  10..30  30..100
+memory_working_set       1.00      0.49    0.32   0.18    0.15     0.13
+memory_usage             0.91      0.46    0.30   0.16    0.14     0.12
+cpu_usage_total          0.00      0.00    0.00   0.00    0.00     0.00
+kontrol                  0.00      0.00    0.00   0.00    0.00     0.00
+offset terhadap AKHIR gangguan (detik; 0 = akhir label)
+                    -30..0  1..10  11..30  31..60  61..120
+memory_working_set    0.08   0.08    0.08    0.08     0.04
+memory_usage          0.08   0.08    0.08    0.08     0.04
+cpu_usage_total       0.00   0.00    0.00    0.00     0.00
+kontrol               0.00   0.00    0.00    0.00     0.00
+
+--- network_loss (jumlah kejadian 27) — 3 kanal paling responsif: ['memory_usage', 'memory_working_set', 'cpu_usage_total']
+offset terhadap AWAL gangguan (detik; 0 = awal label)
+                    -120..-60  -60..-20  -20..0  0..10  10..30  30..100
+memory_usage             0.08      0.04    0.06   0.08    0.06     0.04
+memory_working_set       0.08      0.04    0.06   0.08    0.06     0.04
+cpu_usage_total          0.00      0.00    0.00   0.00    0.00     0.00
+kontrol                  0.00      0.00    0.00   0.00    0.00     0.00
+offset terhadap AKHIR gangguan (detik; 0 = akhir label)
+                    -30..0  1..10  11..30  31..60  61..120
+memory_usage          0.03   0.03    0.02    0.02     0.02
+memory_working_set    0.03   0.03    0.02    0.02     0.02
+cpu_usage_total       0.00   0.00    0.00    0.00     0.00
+kontrol               0.00   0.00    0.00    0.00     0.00
+
+====================================================================================================
+B. Apakah jenis run bisa ditebak dari fitur jendela normal?
+====================================================================================================
+jumlah jendela: {'FLT': 47897, 'NF': 24237, 'GAP': 8056}
+
+Fitur paling berbeda NF vs GAP (d = selisih rata-rata / simpangan baku gabungan; 'm' = metrics z-score, trace/log = aktivitas):
+                         fitur  d (std)  rata2 NF  rata2 GAP
+       m:train:cpu_usage_total     0.81      -0.0      0.242
+      m:cancel:cpu_usage_total     0.80      -0.0      0.249
+        m:seat:cpu_usage_total     0.80      -0.0      0.251
+  m:route-plan:cpu_usage_total     0.79       0.0      0.239
+       m:price:cpu_usage_total     0.79       0.0      0.238
+m:notification:cpu_usage_total     0.79       0.0      0.236
+     m:payment:cpu_usage_total     0.76      -0.0      0.229
+ m:travel-plan:cpu_usage_total     0.76       0.0      0.236
+        m:user:cpu_usage_total     0.72      -0.0      0.231
+      m:config:cpu_usage_total     0.67       0.0      0.224
+
+Jumlah fitur dengan |d| > 1 antara NF dan GAP: 0 dari 243 (metrics 0, aktivitas trace/log 0)
+
+AUC classifier logistic (leave-run-group-out; 0,5 = tak bisa dibedakan, 1,0 = sangat terpisah):
+     kasus  semua fitur  hanya metrics  hanya aktivitas trace+log
+ NF vs GAP        0.602          0.597                      0.597
+GAP vs FLT        0.562          0.559                      0.514
+ NF vs FLT        0.626          0.636                      0.623
+
+Pergeseran fitur di run TANPA fault: separuh awal (0–50%) vs 40% akhir (60–100%) (d dalam simpangan baku separuh awal)
+run 9: fitur |d|>1 = 18 dari 243 | teratas: m:station:memory_usage (-12.7), m:station:memory_working_set (-12.7), m:inside-payment:memory_working_set (-6.7), m:inside-payment:memory_usage (-6.7), m:verification-code:memory_working_set (-2.7), m:verification-code:memory_usage (-2.7)
+run 10: fitur |d|>1 = 22 dari 243 | teratas: m:assurance:memory_usage (+46647.2), m:assurance:memory_working_set (+46647.2), m:food:memory_usage (-41.1), m:food:memory_working_set (-41.1), m:security:memory_working_set (-11.5), m:security:memory_usage (-11.5)
+run 11: fitur |d|>1 = 14 dari 243 | teratas: m:verification-code:memory_working_set (-97.0), m:verification-code:memory_usage (-97.0), m:route:memory_usage (+4.5), m:route:memory_working_set (+4.5), m:travel:memory_usage (-3.6), m:travel:memory_working_set (-3.6)
+====================================================================================================
+C. Alarm palsu (jendela normal) per 200 detik di run tanpa fault
+====================================================================================================
+run      9    10     11 split dominan
+bin                                  
+0      1.0   0.0    0.0         train
+200    0.0   0.0    2.0         train
+400    4.0   0.0    0.0         train
+600    2.0   0.0    2.0         train
+800    5.0   0.0    0.0         train
+1000   0.0   0.0    1.0         train
+1200   0.0   2.0    0.0         train
+1400   2.0   0.0    2.0         train
+1600   1.0   0.0    0.0         train
+1800   0.0   0.0    0.0         train
+2000   0.0   0.0    0.0         train
+2200   2.0   2.0    0.0         train
+2400   0.0   0.0    0.0         train
+2600   0.0   0.0    0.0         train
+2800   0.0   0.0    0.0         train
+3000   0.0   0.0    0.0         train
+3200   0.0   0.0    0.0         train
+3400   2.0   0.0    0.0         train
+3600   0.0   0.0    0.0         train
+3800   0.0   0.0    0.0         train
+4000   3.0   0.0    1.0           val
+4200   0.0  35.0    4.0           val
+4400   0.0   4.0   16.0           val
+4600   0.0   2.0   49.0           val
+4800   0.0  26.0   92.0          test
+5000   4.0  30.0   96.0          test
+5200   3.0  46.0   92.0          test
+5400   0.0  64.0   91.0          test
+5600   0.0  99.0  100.0          test
+5800   9.0  68.0   96.0          test
+6000   2.0  62.0  100.0          test
+6200   2.0  55.0   92.0          test
+6400   0.0  24.0  100.0          test
+6600   2.0  52.0   89.0          test
+6800   1.0  65.0   58.0          test
+7000  16.0  24.0   93.0          test
+7200  12.0  13.0   92.0          test
+7400  12.0  43.0   44.0          test
+7600  14.0  86.0   48.0          test
+7800  14.0  96.0   54.0          test
+8000  11.0  72.0   42.0          test

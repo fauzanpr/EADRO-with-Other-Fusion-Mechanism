@@ -1,0 +1,19 @@
+AUC gradient boosting pada RINGKASAN ANTAR-NODE (max|z|, rata-rata, sd, persentil-90 per kanal; jumlah node ber-trace/ber-log):
+     kasus  semua ringkasan  hanya metrics  hanya aktivitas trace+log
+ NF vs GAP            0.983          0.981                      0.601
+GAP vs FLT            0.746          0.726                      0.545
+ NF vs FLT            0.993          0.993                      0.636
+
+Pergeseran fitur di run TANPA fault: separuh awal (0–50%) vs 40% akhir (60–100%) (d dalam simpangan baku separuh awal)
+run 9: fitur |d|>1 = 18 dari 243 | teratas: m:station:memory_usage (-12.7), m:station:memory_working_set (-12.7), m:inside-payment:memory_working_set (-6.7), m:inside-payment:memory_usage (-6.7), m:verification-code:memory_working_set (-2.7), m:verification-code:memory_usage (-2.7)
+run 10: fitur |d|>1 = 22 dari 243 | teratas: m:assurance:memory_usage (+46647.2), m:assurance:memory_working_set (+46647.2), m:food:memory_usage (-41.1), m:food:memory_working_set (-41.1), m:security:memory_working_set (-11.5), m:security:memory_usage (-11.5)
+run 11: fitur |d|>1 = 14 dari 243 | teratas: m:verification-code:memory_working_set (-97.0), m:verification-code:memory_usage (-97.0), m:route:memory_usage (+4.5), m:route:memory_working_set (+4.5), m:travel:memory_usage (-3.6), m:travel:memory_working_set (-3.6)
+====================================================================================================
+D. Run TANPA fault: kanal metrics mentah yang levelnya berubah antara separuh awal dan 40% akhir (dan kapan)
+====================================================================================================
+run 9 (8107 detik; separuh awal = latih, 50–60% = val): 0 kanal berubah level
+
+run 10 (8107 detik; separuh awal = latih, 50–60% = val): 0 kanal berubah level
+
+run 11 (8107 detik; separuh awal = latih, 50–60% = val): 0 kanal berubah level
+

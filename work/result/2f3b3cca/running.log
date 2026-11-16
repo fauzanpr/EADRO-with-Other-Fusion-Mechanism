@@ -1,0 +1,62 @@
+2026-11-16 03:03:29,510 P39038 INFO Using CPU...
+2026-11-16 03:03:29,510 P39038 INFO Load from ../chunks/A1/random_original
+2026-11-16 03:04:45,158 P39038 INFO Epoch 1/50, training loss: 1.50946 [72.91s]
+2026-11-16 03:05:58,953 P39038 INFO Epoch 2/50, training loss: 0.45700 [73.79s]
+2026-11-16 03:07:11,942 P39038 INFO Epoch 3/50, training loss: 0.24465 [72.99s]
+2026-11-16 03:08:24,800 P39038 INFO Epoch 4/50, training loss: 0.19450 [72.86s]
+2026-11-16 03:09:37,786 P39038 INFO Epoch 5/50, training loss: 0.18275 [72.99s]
+2026-11-16 03:10:50,849 P39038 INFO Epoch 6/50, training loss: 0.22835 [73.06s]
+2026-11-16 03:12:03,741 P39038 INFO Epoch 7/50, training loss: 0.16275 [72.89s]
+2026-11-16 03:13:16,663 P39038 INFO Epoch 8/50, training loss: 0.14810 [72.92s]
+2026-11-16 03:14:29,601 P39038 INFO Epoch 9/50, training loss: 0.14956 [72.94s]
+2026-11-16 03:15:05,812 P39038 INFO Val -- F1: 0.9491, Rec: 0.9906, Pre: 0.9110, HR@1: 0.6433, ndcg@1: 0.6433, HR@3: 0.6465, ndcg@3: 0.6453, HR@5: 0.6466, ndcg@5: 0.6453, F1(std): 0.9242, Rec(std): 0.9857, Pre(std): 0.8699, HR@1(std): 0.9806, ndcg@1(std): 0.9806, HR@3(std): 0.9854, ndcg@3(std): 0.9835, HR@5(std): 0.9855, ndcg@5(std): 0.9836
+2026-11-16 03:15:42,466 P39038 INFO Test -- F1: 0.9491, Rec: 0.9906, Pre: 0.9110, HR@1: 0.6433, ndcg@1: 0.6433, HR@3: 0.6465, ndcg@3: 0.6453, HR@5: 0.6466, ndcg@5: 0.6453, F1(std): 0.9242, Rec(std): 0.9857, Pre(std): 0.8699, HR@1(std): 0.9806, ndcg@1(std): 0.9806, HR@3(std): 0.9854, ndcg@3(std): 0.9835, HR@5(std): 0.9855, ndcg@5(std): 0.9836
+2026-11-16 03:16:55,424 P39038 INFO Epoch 10/50, training loss: 0.13604 [72.95s]
+2026-11-16 03:18:08,445 P39038 INFO Epoch 11/50, training loss: 0.13611 [73.02s]
+2026-11-16 03:19:21,540 P39038 INFO Epoch 12/50, training loss: 0.12238 [73.09s]
+2026-11-16 03:20:34,464 P39038 INFO Epoch 13/50, training loss: 0.12070 [72.92s]
+2026-11-16 03:21:47,396 P39038 INFO Epoch 14/50, training loss: 0.12543 [72.93s]
+2026-11-16 03:23:00,508 P39038 INFO Epoch 15/50, training loss: 0.11575 [73.11s]
+2026-11-16 03:24:13,454 P39038 INFO Epoch 16/50, training loss: 0.11713 [72.95s]
+2026-11-16 03:25:26,777 P39038 INFO Epoch 17/50, training loss: 0.11005 [73.32s]
+2026-11-16 03:26:40,108 P39038 INFO Epoch 18/50, training loss: 0.10365 [73.33s]
+2026-11-16 03:27:53,015 P39038 INFO Epoch 19/50, training loss: 0.10530 [72.91s]
+2026-11-16 03:28:29,426 P39038 INFO Val -- F1: 0.9542, Rec: 0.9940, Pre: 0.9175, HR@1: 0.6442, ndcg@1: 0.6442, HR@3: 0.6456, ndcg@3: 0.6451, HR@5: 0.6456, ndcg@5: 0.6451, F1(std): 0.9313, Rec(std): 0.9908, Pre(std): 0.8785, HR@1(std): 0.9886, ndcg@1(std): 0.9886, HR@3(std): 0.9907, ndcg@3(std): 0.9899, HR@5(std): 0.9907, ndcg@5(std): 0.9899
+2026-11-16 03:29:06,082 P39038 INFO Test -- F1: 0.9542, Rec: 0.9940, Pre: 0.9175, HR@1: 0.6442, ndcg@1: 0.6442, HR@3: 0.6456, ndcg@3: 0.6451, HR@5: 0.6456, ndcg@5: 0.6451, F1(std): 0.9313, Rec(std): 0.9908, Pre(std): 0.8785, HR@1(std): 0.9886, ndcg@1(std): 0.9886, HR@3(std): 0.9907, ndcg@3(std): 0.9899, HR@5(std): 0.9907, ndcg@5(std): 0.9899
+2026-11-16 03:30:19,148 P39038 INFO Epoch 20/50, training loss: 0.10642 [73.06s]
+2026-11-16 03:31:32,161 P39038 INFO Epoch 21/50, training loss: 0.09518 [73.01s]
+2026-11-16 03:32:45,063 P39038 INFO Epoch 22/50, training loss: 0.09516 [72.90s]
+2026-11-16 03:33:57,981 P39038 INFO Epoch 23/50, training loss: 0.09150 [72.92s]
+2026-11-16 03:35:11,178 P39038 INFO Epoch 24/50, training loss: 0.09482 [73.20s]
+2026-11-16 03:36:24,460 P39038 INFO Epoch 25/50, training loss: 0.08859 [73.28s]
+2026-11-16 03:37:37,285 P39038 INFO Epoch 26/50, training loss: 0.08552 [72.82s]
+2026-11-16 03:38:50,264 P39038 INFO Epoch 27/50, training loss: 0.08206 [72.98s]
+2026-11-16 03:40:03,169 P39038 INFO Epoch 28/50, training loss: 0.08018 [72.90s]
+2026-11-16 03:41:16,539 P39038 INFO Epoch 29/50, training loss: 0.08250 [73.37s]
+2026-11-16 03:41:53,371 P39038 INFO Val -- F1: 0.9635, Rec: 0.9911, Pre: 0.9374, HR@1: 0.6274, ndcg@1: 0.6274, HR@3: 0.6287, ndcg@3: 0.6282, HR@5: 0.6287, ndcg@5: 0.6282, F1(std): 0.9437, Rec(std): 0.9860, Pre(std): 0.9048, HR@1(std): 0.9836, ndcg@1(std): 0.9836, HR@3(std): 0.9857, ndcg@3(std): 0.9849, HR@5(std): 0.9857, ndcg@5(std): 0.9849
+2026-11-16 03:43:06,389 P39038 INFO Epoch 30/50, training loss: 0.07826 [73.02s]
+2026-11-16 03:44:19,443 P39038 INFO Epoch 31/50, training loss: 0.07936 [73.05s]
+2026-11-16 03:45:32,811 P39038 INFO Epoch 32/50, training loss: 0.07701 [73.37s]
+2026-11-16 03:46:45,735 P39038 INFO Epoch 33/50, training loss: 0.06938 [72.92s]
+2026-11-16 03:47:58,684 P39038 INFO Epoch 34/50, training loss: 0.07039 [72.95s]
+2026-11-16 03:49:11,713 P39038 INFO Epoch 35/50, training loss: 0.07139 [73.03s]
+2026-11-16 03:50:24,733 P39038 INFO Epoch 36/50, training loss: 0.07012 [73.02s]
+2026-11-16 03:51:38,092 P39038 INFO Epoch 37/50, training loss: 0.06742 [73.36s]
+2026-11-16 03:52:51,077 P39038 INFO Epoch 38/50, training loss: 0.06486 [72.98s]
+2026-11-16 03:54:04,025 P39038 INFO Epoch 39/50, training loss: 0.06205 [72.95s]
+2026-11-16 03:54:39,298 P39038 INFO Val -- F1: 0.9691, Rec: 0.9712, Pre: 0.9669, HR@1: 0.5882, ndcg@1: 0.5882, HR@3: 0.5893, ndcg@3: 0.5889, HR@5: 0.5893, ndcg@5: 0.5889, F1(std): 0.9500, Rec(std): 0.9534, Pre(std): 0.9467, HR@1(std): 0.9517, ndcg@1(std): 0.9517, HR@3(std): 0.9534, ndcg@3(std): 0.9528, HR@5(std): 0.9534, ndcg@5(std): 0.9528
+2026-11-16 03:55:52,548 P39038 INFO Epoch 40/50, training loss: 0.06733 [73.25s]
+2026-11-16 03:57:06,048 P39038 INFO Epoch 41/50, training loss: 0.06216 [73.50s]
+2026-11-16 03:58:19,069 P39038 INFO Epoch 42/50, training loss: 0.05734 [73.02s]
+2026-11-16 03:59:32,324 P39038 INFO Epoch 43/50, training loss: 0.06089 [73.25s]
+2026-11-16 04:00:45,347 P39038 INFO Epoch 44/50, training loss: 0.05358 [73.02s]
+2026-11-16 04:01:58,631 P39038 INFO Epoch 45/50, training loss: 0.06363 [73.28s]
+2026-11-16 04:03:11,568 P39038 INFO Epoch 46/50, training loss: 0.05400 [72.94s]
+2026-11-16 04:04:24,427 P39038 INFO Epoch 47/50, training loss: 0.05491 [72.86s]
+2026-11-16 04:05:37,734 P39038 INFO Epoch 48/50, training loss: 0.05280 [73.31s]
+2026-11-16 04:06:50,927 P39038 INFO Epoch 49/50, training loss: 0.04802 [73.19s]
+2026-11-16 04:07:27,444 P39038 INFO Val -- F1: 0.9782, Rec: 0.9867, Pre: 0.9698, HR@1: 0.6024, ndcg@1: 0.6024, HR@3: 0.6033, ndcg@3: 0.6030, HR@5: 0.6033, ndcg@5: 0.6030, F1(std): 0.9648, Rec(std): 0.9784, Pre(std): 0.9515, HR@1(std): 0.9770, ndcg@1(std): 0.9770, HR@3(std): 0.9784, ndcg@3(std): 0.9779, HR@5(std): 0.9784, ndcg@5(std): 0.9779
+2026-11-16 04:08:40,505 P39038 INFO Epoch 50/50, training loss: 0.04912 [73.06s]
+2026-11-16 04:08:40,505 P39038 INFO * Best result got at epoch 19 with validation HR@1: 0.6442
+2026-11-16 04:08:40,867 P39038 INFO Efficiency -- params_total: 66050, params_fusion: 18560, infer_ms_per_window: 0.2693, peak_rss_mb: 3565
+2026-11-16 04:08:40,867 P39038 INFO Current hash_id 2f3b3cca

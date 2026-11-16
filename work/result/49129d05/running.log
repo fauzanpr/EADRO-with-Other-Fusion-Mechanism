@@ -1,0 +1,7 @@
+2026-10-26 22:29:45,786 P55839 INFO Using CPU...
+2026-10-26 22:29:45,786 P55839 INFO Load from ../chunks/A1/within_event
+2026-10-26 22:31:08,130 P55839 INFO Epoch 1/1, training loss: 1.64789 [77.68s]
+2026-10-26 22:31:26,005 P55839 INFO Val -- F1: 0.9311, Rec: 0.9035, Pre: 0.9604, HR@1: 0.2910, ndcg@1: 0.2910, HR@3: 0.4419, ndcg@3: 0.3791, HR@5: 0.4941, ndcg@5: 0.4010, F1(std): 0.9008, Rec(std): 0.8629, Pre(std): 0.9422, HR@1(std): 0.4133, ndcg@1(std): 0.4133, HR@3(std): 0.6277, ndcg@3(std): 0.5384, HR@5(std): 0.7018, ndcg@5(std): 0.5695
+2026-10-26 22:32:25,728 P55839 INFO Test -- F1: 0.8150, Rec: 0.8990, Pre: 0.7454, HR@1: 0.2591, ndcg@1: 0.2591, HR@3: 0.4359, ndcg@3: 0.3606, HR@5: 0.4940, ndcg@5: 0.3847, F1(std): 0.7552, Rec(std): 0.8617, Pre(std): 0.6721, HR@1(std): 0.3548, ndcg@1(std): 0.3548, HR@3(std): 0.5967, ndcg@3(std): 0.4936, HR@5(std): 0.6762, ndcg@5(std): 0.5267
+2026-10-26 22:32:25,737 P55839 INFO Unable to convergence!
+2026-10-26 22:32:25,738 P55839 INFO Current hash_id 49129d05

@@ -1,0 +1,38 @@
+2026-10-27 04:06:15,953 P67098 INFO Using CPU...
+2026-10-27 04:06:15,953 P67098 INFO Load from ../chunks/A1/leave_event_out
+2026-10-27 04:07:46,817 P67098 INFO Epoch 1/30, training loss: 1.50506 [83.50s]
+2026-10-27 04:09:01,906 P67098 INFO Epoch 2/30, training loss: 0.56353 [75.09s]
+2026-10-27 04:10:21,368 P67098 INFO Epoch 3/30, training loss: 0.26695 [79.46s]
+2026-10-27 04:11:38,773 P67098 INFO Epoch 4/30, training loss: 0.18792 [77.40s]
+2026-10-27 04:12:51,480 P67098 INFO Epoch 5/30, training loss: 0.14364 [72.64s]
+2026-10-27 04:14:04,533 P67098 INFO Epoch 6/30, training loss: 0.14290 [72.99s]
+2026-10-27 04:15:16,451 P67098 INFO Epoch 7/30, training loss: 0.10873 [71.92s]
+2026-10-27 04:16:28,852 P67098 INFO Epoch 8/30, training loss: 0.10022 [72.34s]
+2026-10-27 04:17:41,403 P67098 INFO Epoch 9/30, training loss: 0.11480 [72.49s]
+2026-10-27 04:17:50,634 P67098 INFO Val -- F1: 0.7531, Rec: 0.9730, Pre: 0.6143, HR@1: 0.4354, ndcg@1: 0.4354, HR@3: 0.4532, ndcg@3: 0.4460, HR@5: 0.4561, ndcg@5: 0.4473, F1(std): 0.5972, Rec(std): 0.9460, Pre(std): 0.4364, HR@1(std): 0.8710, ndcg@1(std): 0.8710, HR@3(std): 0.9066, ndcg@3(std): 0.8922, HR@5(std): 0.9125, ndcg@5(std): 0.8947
+2026-10-27 04:18:41,055 P67098 INFO Test -- F1: 0.8252, Rec: 0.9042, Pre: 0.7589, HR@1: 0.4175, ndcg@1: 0.4175, HR@3: 0.5152, ndcg@3: 0.4747, HR@5: 0.5657, ndcg@5: 0.4957, F1(std): 0.7799, Rec(std): 0.8763, Pre(std): 0.7026, HR@1(std): 0.5392, ndcg@1(std): 0.5392, HR@3(std): 0.6655, ndcg@3(std): 0.6131, HR@5(std): 0.7306, ndcg@5(std): 0.6403
+2026-10-27 04:19:53,535 P67098 INFO Epoch 10/30, training loss: 0.08396 [72.39s]
+2026-10-27 04:21:05,959 P67098 INFO Epoch 11/30, training loss: 0.07525 [72.36s]
+2026-10-27 04:22:17,865 P67098 INFO Epoch 12/30, training loss: 0.07207 [71.91s]
+2026-10-27 04:23:32,716 P67098 INFO Epoch 13/30, training loss: 0.06803 [74.85s]
+2026-10-27 04:24:44,957 P67098 INFO Epoch 14/30, training loss: 0.08685 [72.24s]
+2026-10-27 04:25:57,417 P67098 INFO Epoch 15/30, training loss: 0.06983 [72.46s]
+2026-10-27 04:27:09,274 P67098 INFO Epoch 16/30, training loss: 0.05983 [71.86s]
+2026-10-27 04:28:21,266 P67098 INFO Epoch 17/30, training loss: 0.05460 [71.99s]
+2026-10-27 04:29:33,879 P67098 INFO Epoch 18/30, training loss: 0.05672 [72.61s]
+2026-10-27 04:30:45,688 P67098 INFO Epoch 19/30, training loss: 0.05313 [71.81s]
+2026-10-27 04:30:55,213 P67098 INFO Val -- F1: 0.7671, Rec: 0.9601, Pre: 0.6387, HR@1: 0.4183, ndcg@1: 0.4183, HR@3: 0.4235, ndcg@3: 0.4215, HR@5: 0.4253, ndcg@5: 0.4222, F1(std): 0.6010, Rec(std): 0.9167, Pre(std): 0.4470, HR@1(std): 0.8735, ndcg@1(std): 0.8735, HR@3(std): 0.8844, ndcg@3(std): 0.8802, HR@5(std): 0.8882, ndcg@5(std): 0.8817
+2026-10-27 04:32:07,354 P67098 INFO Epoch 20/30, training loss: 0.04658 [72.14s]
+2026-10-27 06:00:20,565 P67098 INFO Epoch 21/30, training loss: 0.04577 [5293.21s]
+2026-10-27 06:01:22,970 P67098 INFO Epoch 22/30, training loss: 0.04594 [62.40s]
+2026-10-27 06:02:21,161 P67098 INFO Epoch 23/30, training loss: 0.05323 [58.19s]
+2026-10-27 06:03:20,109 P67098 INFO Epoch 24/30, training loss: 0.05255 [58.95s]
+2026-10-27 06:04:18,256 P67098 INFO Epoch 25/30, training loss: 0.05280 [58.15s]
+2026-10-27 06:05:16,707 P67098 INFO Epoch 26/30, training loss: 0.03819 [58.45s]
+2026-10-27 06:06:15,132 P67098 INFO Epoch 27/30, training loss: 0.04267 [58.42s]
+2026-10-27 06:07:16,475 P67098 INFO Epoch 28/30, training loss: 0.04391 [61.34s]
+2026-10-27 06:08:18,185 P67098 INFO Epoch 29/30, training loss: 0.03603 [61.71s]
+2026-10-27 06:08:24,937 P67098 INFO Val -- F1: 0.7984, Rec: 0.9797, Pre: 0.6737, HR@1: 0.4095, ndcg@1: 0.4095, HR@3: 0.4231, ndcg@3: 0.4177, HR@5: 0.4267, ndcg@5: 0.4193, F1(std): 0.6387, Rec(std): 0.9556, Pre(std): 0.4796, HR@1(std): 0.8949, ndcg@1(std): 0.8949, HR@3(std): 0.9246, ndcg@3(std): 0.9130, HR@5(std): 0.9326, ndcg@5(std): 0.9163
+2026-10-27 06:09:23,111 P67098 INFO Epoch 30/30, training loss: 0.03580 [58.17s]
+2026-10-27 06:09:23,111 P67098 INFO * Best result got at epoch 9 with validation HR@1: 0.4354
+2026-10-27 06:09:23,112 P67098 INFO Current hash_id d574273b

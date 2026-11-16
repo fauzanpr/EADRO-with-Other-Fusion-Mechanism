@@ -1,0 +1,37 @@
+# starts at 1650172861/1650172861 and ends at 1650179320/1650179321
+run  0 (fault   ):  6451 jendela, dibuang(purge) kumulatif: 0
+# starts at 1650219920/1650219920 and ends at 1650226379/1650226380
+run  1 (fault   ):  6451 jendela, dibuang(purge) kumulatif: 0
+# starts at 1650226515/1650226515 and ends at 1650232974/1650232975
+run  2 (fault   ):  6451 jendela, dibuang(purge) kumulatif: 0
+# starts at 1650236849/1650236849 and ends at 1650243309/1650243310
+run  3 (fault   ):  6452 jendela, dibuang(purge) kumulatif: 0
+# starts at 1650243487/1650243487 and ends at 1650249946/1650249947
+run  4 (fault   ):  6451 jendela, dibuang(purge) kumulatif: 0
+# starts at 1650250079/1650250079 and ends at 1650256537/1650256538
+run  5 (fault   ):  6450 jendela, dibuang(purge) kumulatif: 0
+# starts at 1650256685/1650256685 and ends at 1650263145/1650263146
+run  6 (fault   ):  6452 jendela, dibuang(purge) kumulatif: 0
+# starts at 1650263281/1650263281 and ends at 1650269739/1650269740
+run  7 (fault   ):  6450 jendela, dibuang(purge) kumulatif: 0
+# starts at 1650269873/1650269873 and ends at 1650276332/1650276333
+run  8 (fault   ):  6451 jendela, dibuang(purge) kumulatif: 0
+# starts at 1650404690/1650404690 and ends at 1650412795/1650412796
+run  9 (no_fault):  8097 jendela, dibuang(purge) kumulatif: 0
+# starts at 1650480718/1650480718 and ends at 1650488823/1650488824
+run 10 (no_fault):  8097 jendela, dibuang(purge) kumulatif: 0
+# starts at 1650497566/1650497566 and ends at 1650505671/1650505672
+run 11 (no_fault):  8097 jendela, dibuang(purge) kumulatif: 0
+
+Skema random_original | jendela dipakai: 82349 | dibuang karena melintasi batas split: 0
+split   jendela   faulty   normal  %faulty  per jenis (jendela)
+train     57644    34575    23069    60.0%  {'cpu_load': 11413, 'network_delay': 11539, 'network_loss': 11623, 'normal': 23069}
+val       24705    14779     9926    59.8%  {'cpu_load': 5002, 'network_delay': 4930, 'network_loss': 4847, 'normal': 9926}
+test      24705    14779     9926    59.8%  {'cpu_load': 5002, 'network_delay': 4930, 'network_loss': 4847, 'normal': 9926}
+
+Jendela faulty per node (min / median / max) dan node yang TIDAK punya contoh sama sekali:
+  train   1236 /  1280 /  1337 | node tanpa contoh: -
+  val      493 /   544 /   594 | node tanpa contoh: -
+  test     493 /   544 /   594 | node tanpa contoh: -
+
+Ditulis ke /home/ojan/AI Labs/EADRO - APDM/work/chunks/A1/random_original

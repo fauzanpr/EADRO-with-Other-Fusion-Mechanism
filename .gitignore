@@ -1,0 +1,40 @@
+# ===== Dataset (besar, jangan di-push) =====
+/TT Dataset/
+/TT Dataset.zip
+*.zip
+
+# ===== Data hasil olahan & environment di work/ (~11 GB) =====
+/work/chunks/
+/work/preprocess/
+/work/raw_nofault/
+/work/envs/
+
+# Checkpoint model (work/result/*/params.json dan running.log tetap ikut)
+*.ckpt
+*.pt
+*.pth
+*.npy
+*.npz
+*.pkl
+*.h5
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# ===== Jupyter =====
+.ipynb_checkpoints/
+
+# ===== Log training / output nohup =====
+nohup.out
+train_*.out
+
+# ===== OS / editor =====
+.DS_Store
+__MACOSX/
+Thumbs.db
+.idea/
+.vscode/
