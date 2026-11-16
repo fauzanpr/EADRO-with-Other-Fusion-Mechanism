@@ -16,3 +16,6 @@ within_event 15 concat_fc 123
 leave_event_out 15 concat_fc 42 
 leave_event_out 15 concat_fc 7 
 leave_event_out 15 concat_fc 123 
+A1_T30 within_event 15 concat_glu 42 
+A1_T30 within_event 15 concat_glu 7 
+A1_T30 within_event 15 concat_glu 123 

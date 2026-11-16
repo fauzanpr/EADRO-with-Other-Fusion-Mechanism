@@ -1,0 +1,24 @@
+2026-11-17 03:59:02,588 P120210 INFO Using CPU...
+2026-11-17 03:59:02,588 P120210 INFO Load from ../chunks/A1_T30/within_event
+2026-11-17 04:01:08,972 P120210 INFO Epoch 1/15, training loss: 1.50686 [123.37s]
+2026-11-17 04:03:12,568 P120210 INFO Epoch 2/15, training loss: 0.41368 [123.60s]
+2026-11-17 04:05:16,252 P120210 INFO Epoch 3/15, training loss: 0.14187 [123.68s]
+2026-11-17 04:07:19,893 P120210 INFO Epoch 4/15, training loss: 0.11569 [123.64s]
+2026-11-17 04:07:31,814 P120210 INFO Val -- F1: 0.9913, Rec: 0.9965, Pre: 0.9862, HR@1: 0.5541, ndcg@1: 0.5541, HR@3: 0.5930, ndcg@3: 0.5780, HR@5: 0.5983, ndcg@5: 0.5802, F1(std): 0.9857, Rec(std): 0.9942, Pre(std): 0.9773, HR@1(std): 0.9166, ndcg@1(std): 0.9166, HR@3(std): 0.9809, ndcg@3(std): 0.9562, HR@5(std): 0.9896, ndcg@5(std): 0.9598
+2026-11-17 04:08:33,621 P120210 INFO Test -- F1: 0.8878, Rec: 0.9829, Pre: 0.8095, HR@1: 0.5960, ndcg@1: 0.5960, HR@3: 0.6675, ndcg@3: 0.6384, HR@5: 0.6807, ndcg@5: 0.6439, F1(std): 0.8509, Rec(std): 0.9764, Pre(std): 0.7540, HR@1(std): 0.8209, ndcg@1(std): 0.8209, HR@3(std): 0.9194, ndcg@3(std): 0.8793, HR@5(std): 0.9376, ndcg@5(std): 0.8868
+2026-11-17 04:10:37,306 P120210 INFO Epoch 5/15, training loss: 0.09318 [123.68s]
+2026-11-17 04:12:40,911 P120210 INFO Epoch 6/15, training loss: 0.07883 [123.60s]
+2026-11-17 04:14:44,667 P120210 INFO Epoch 7/15, training loss: 0.10207 [123.76s]
+2026-11-17 04:16:48,368 P120210 INFO Epoch 8/15, training loss: 0.07161 [123.70s]
+2026-11-17 04:18:52,059 P120210 INFO Epoch 9/15, training loss: 0.06918 [123.69s]
+2026-11-17 04:19:03,831 P120210 INFO Val -- F1: 0.9813, Rec: 0.9766, Pre: 0.9861, HR@1: 0.5470, ndcg@1: 0.5470, HR@3: 0.5653, ndcg@3: 0.5576, HR@5: 0.5699, ndcg@5: 0.5594, F1(std): 0.9690, Rec(std): 0.9613, Pre(std): 0.9768, HR@1(std): 0.9050, ndcg@1(std): 0.9050, HR@3(std): 0.9353, ndcg@3(std): 0.9225, HR@5(std): 0.9428, ndcg@5(std): 0.9255
+2026-11-17 04:21:07,564 P120210 INFO Epoch 10/15, training loss: 0.10003 [123.73s]
+2026-11-17 04:23:11,367 P120210 INFO Epoch 11/15, training loss: 0.06620 [123.80s]
+2026-11-17 04:25:15,195 P120210 INFO Epoch 12/15, training loss: 0.05323 [123.83s]
+2026-11-17 04:27:18,905 P120210 INFO Epoch 13/15, training loss: 0.04924 [123.71s]
+2026-11-17 04:29:22,710 P120210 INFO Epoch 14/15, training loss: 0.04791 [123.81s]
+2026-11-17 04:29:34,245 P120210 INFO Val -- F1: 0.9727, Rec: 0.9590, Pre: 0.9867, HR@1: 0.5333, ndcg@1: 0.5333, HR@3: 0.5516, ndcg@3: 0.5441, HR@5: 0.5525, ndcg@5: 0.5445, F1(std): 0.9543, Rec(std): 0.9322, Pre(std): 0.9776, HR@1(std): 0.8831, ndcg@1(std): 0.8831, HR@3(std): 0.9134, ndcg@3(std): 0.9010, HR@5(std): 0.9148, ndcg@5(std): 0.9016
+2026-11-17 04:31:38,131 P120210 INFO Epoch 15/15, training loss: 0.05247 [123.89s]
+2026-11-17 04:31:38,131 P120210 INFO * Best result got at epoch 4 with validation combo: 0.9511
+2026-11-17 04:31:39,272 P120210 INFO Efficiency -- params_total: 68650, params_fusion: 18560, infer_ms_per_window: 0.8711, peak_rss_mb: 5105
+2026-11-17 04:31:39,273 P120210 INFO Current hash_id d746e852
