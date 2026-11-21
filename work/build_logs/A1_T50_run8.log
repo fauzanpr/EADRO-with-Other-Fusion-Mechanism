@@ -1,0 +1,74 @@
+# starts at 1650269873/1650269873 and ends at 1650276332/1650276333
+run 8: 6411 jendela
+*** Dealing with traces...
+run 8: traces.pkl selesai dalam 1s
+*** Dealing with metrics...
+run 8: metrics.pkl selesai dalam 37s
+*** Dealing with logs...
+# Real Template Number: 59
+Computing Hawkes of chunk 100/6411
+Computing Hawkes of chunk 200/6411
+Computing Hawkes of chunk 300/6411
+Computing Hawkes of chunk 400/6411
+Computing Hawkes of chunk 500/6411
+Computing Hawkes of chunk 600/6411
+Computing Hawkes of chunk 700/6411
+Computing Hawkes of chunk 800/6411
+Computing Hawkes of chunk 900/6411
+Computing Hawkes of chunk 1000/6411
+Computing Hawkes of chunk 1100/6411
+Computing Hawkes of chunk 1200/6411
+Computing Hawkes of chunk 1300/6411
+Computing Hawkes of chunk 1400/6411
+Computing Hawkes of chunk 1500/6411
+Computing Hawkes of chunk 1600/6411
+Computing Hawkes of chunk 1700/6411
+Computing Hawkes of chunk 1800/6411
+Computing Hawkes of chunk 1900/6411
+Computing Hawkes of chunk 2000/6411
+Computing Hawkes of chunk 2100/6411
+Computing Hawkes of chunk 2200/6411
+Computing Hawkes of chunk 2300/6411
+Computing Hawkes of chunk 2400/6411
+Computing Hawkes of chunk 2500/6411
+Computing Hawkes of chunk 2600/6411
+Computing Hawkes of chunk 2700/6411
+Computing Hawkes of chunk 2800/6411
+Computing Hawkes of chunk 2900/6411
+Computing Hawkes of chunk 3000/6411
+Computing Hawkes of chunk 3100/6411
+Computing Hawkes of chunk 3200/6411
+Computing Hawkes of chunk 3300/6411
+Computing Hawkes of chunk 3400/6411
+Computing Hawkes of chunk 3500/6411
+Computing Hawkes of chunk 3600/6411
+Computing Hawkes of chunk 3700/6411
+Computing Hawkes of chunk 3800/6411
+Computing Hawkes of chunk 3900/6411
+Computing Hawkes of chunk 4000/6411
+Computing Hawkes of chunk 4100/6411
+Computing Hawkes of chunk 4200/6411
+Computing Hawkes of chunk 4300/6411
+Computing Hawkes of chunk 4400/6411
+Computing Hawkes of chunk 4500/6411
+Computing Hawkes of chunk 4600/6411
+Computing Hawkes of chunk 4700/6411
+Computing Hawkes of chunk 4800/6411
+Computing Hawkes of chunk 4900/6411
+Computing Hawkes of chunk 5000/6411
+Computing Hawkes of chunk 5100/6411
+Computing Hawkes of chunk 5200/6411
+Computing Hawkes of chunk 5300/6411
+Computing Hawkes of chunk 5400/6411
+Computing Hawkes of chunk 5500/6411
+Computing Hawkes of chunk 5600/6411
+Computing Hawkes of chunk 5700/6411
+Computing Hawkes of chunk 5800/6411
+Computing Hawkes of chunk 5900/6411
+Computing Hawkes of chunk 6000/6411
+Computing Hawkes of chunk 6100/6411
+Computing Hawkes of chunk 6200/6411
+Computing Hawkes of chunk 6300/6411
+Computing Hawkes of chunk 6400/6411
+# Empty log: 0
+run 8: logs.pkl selesai dalam 2668s

@@ -8,6 +8,8 @@
 /work/preprocess/
 /work/raw_nofault/
 /work/envs/
+/work/colab_pack/
+*.tar
 
 # Checkpoint model (work/result/*/params.json dan running.log tetap ikut)
 *.ckpt
