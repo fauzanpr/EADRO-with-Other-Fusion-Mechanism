@@ -34,3 +34,9 @@ A1_T40 leave_event_out 15 concat_glu 123
 A1_T50 leave_event_out 15 concat_glu 42 
 A1_T50 leave_event_out 15 concat_glu 7 
 A1_T50 leave_event_out 15 concat_glu 123 
+A1_T60 within_event 15 concat_glu 42 
+A1_T60 within_event 15 concat_glu 7 
+A1_T60 within_event 15 concat_glu 123 
+A1_T60 leave_event_out 15 concat_glu 42 
+A1_T60 leave_event_out 15 concat_glu 7 
+A1_T60 leave_event_out 15 concat_glu 123 

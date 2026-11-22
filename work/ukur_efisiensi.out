@@ -1,0 +1,35 @@
+ronde 1  T=5 concat_glu b1=2.56 ms  b256=0.228 ms  train=0.870 ms/jendela
+ronde 1  T=10 concat_glu b1=1.78 ms  b256=0.261 ms  train=1.572 ms/jendela
+ronde 1  T=30 concat_glu b1=2.12 ms  b256=1.059 ms  train=4.899 ms/jendela
+ronde 1  T=40 concat_glu b1=2.52 ms  b256=1.562 ms  train=5.725 ms/jendela
+ronde 1  T=50 concat_glu b1=2.71 ms  b256=2.178 ms  train=7.056 ms/jendela
+ronde 1  T=60 concat_glu b1=2.72 ms  b256=2.614 ms  train=8.561 ms/jendela
+ronde 2  T=5 concat_glu b1=1.77 ms  b256=0.151 ms  train=0.811 ms/jendela
+ronde 2  T=10 concat_glu b1=1.86 ms  b256=0.321 ms  train=1.462 ms/jendela
+ronde 2  T=30 concat_glu b1=2.42 ms  b256=1.263 ms  train=4.237 ms/jendela
+ronde 2  T=40 concat_glu b1=2.35 ms  b256=1.545 ms  train=5.298 ms/jendela
+ronde 2  T=50 concat_glu b1=2.52 ms  b256=1.894 ms  train=7.525 ms/jendela
+ronde 2  T=60 concat_glu b1=2.89 ms  b256=2.641 ms  train=9.503 ms/jendela
+ronde 3  T=5 concat_glu b1=1.95 ms  b256=0.177 ms  train=0.802 ms/jendela
+ronde 3  T=10 concat_glu b1=2.04 ms  b256=0.251 ms  train=1.426 ms/jendela
+ronde 3  T=30 concat_glu b1=2.39 ms  b256=1.062 ms  train=4.193 ms/jendela
+ronde 3  T=40 concat_glu b1=2.52 ms  b256=1.497 ms  train=5.635 ms/jendela
+ronde 3  T=50 concat_glu b1=2.69 ms  b256=2.012 ms  train=7.089 ms/jendela
+ronde 3  T=60 concat_glu b1=2.91 ms  b256=2.625 ms  train=8.719 ms/jendela
+ditulis work/efisiensi_T.json
+ronde 1  T=10 concat_glu b1=1.94 ms  b256=0.352 ms  train=1.607 ms/jendela
+ronde 1  T=10 concat_fc  b1=2.06 ms  b256=0.321 ms  train=1.746 ms/jendela
+ronde 1  T=10 sum        b1=2.06 ms  b256=0.325 ms  train=1.581 ms/jendela
+ronde 1  T=10 attn       b1=2.07 ms  b256=0.266 ms  train=1.567 ms/jendela
+ronde 1  T=10 lmf        b1=2.06 ms  b256=0.284 ms  train=1.546 ms/jendela
+ronde 2  T=10 concat_glu b1=2.23 ms  b256=0.310 ms  train=2.045 ms/jendela
+ronde 2  T=10 concat_fc  b1=1.98 ms  b256=0.288 ms  train=2.198 ms/jendela
+ronde 2  T=10 sum        b1=3.38 ms  b256=0.370 ms  train=1.945 ms/jendela
+ronde 2  T=10 attn       b1=2.60 ms  b256=0.343 ms  train=1.463 ms/jendela
+ronde 2  T=10 lmf        b1=2.03 ms  b256=0.279 ms  train=1.570 ms/jendela
+ronde 3  T=10 concat_glu b1=2.06 ms  b256=0.257 ms  train=1.615 ms/jendela
+ronde 3  T=10 concat_fc  b1=3.12 ms  b256=0.250 ms  train=1.511 ms/jendela
+ronde 3  T=10 sum        b1=1.98 ms  b256=0.277 ms  train=1.694 ms/jendela
+ronde 3  T=10 attn       b1=2.07 ms  b256=0.270 ms  train=1.972 ms/jendela
+ronde 3  T=10 lmf        b1=2.12 ms  b256=0.311 ms  train=1.648 ms/jendela
+ditulis work/efisiensi_fusion.json

@@ -1,0 +1,90 @@
+# starts at 1650497566/1650497566 and ends at 1650505671/1650505672
+run 11: 8047 jendela
+*** Dealing with traces...
+run 11: traces.pkl selesai dalam 2s
+*** Dealing with metrics...
+run 11: metrics.pkl selesai dalam 47s
+*** Dealing with logs...
+# Real Template Number: 59
+Computing Hawkes of chunk 100/8047
+Computing Hawkes of chunk 200/8047
+Computing Hawkes of chunk 300/8047
+Computing Hawkes of chunk 400/8047
+Computing Hawkes of chunk 500/8047
+Computing Hawkes of chunk 600/8047
+Computing Hawkes of chunk 700/8047
+Computing Hawkes of chunk 800/8047
+Computing Hawkes of chunk 900/8047
+Computing Hawkes of chunk 1000/8047
+Computing Hawkes of chunk 1100/8047
+Computing Hawkes of chunk 1200/8047
+Computing Hawkes of chunk 1300/8047
+Computing Hawkes of chunk 1400/8047
+Computing Hawkes of chunk 1500/8047
+Computing Hawkes of chunk 1600/8047
+Computing Hawkes of chunk 1700/8047
+Computing Hawkes of chunk 1800/8047
+Computing Hawkes of chunk 1900/8047
+Computing Hawkes of chunk 2000/8047
+Computing Hawkes of chunk 2100/8047
+Computing Hawkes of chunk 2200/8047
+Computing Hawkes of chunk 2300/8047
+Computing Hawkes of chunk 2400/8047
+Computing Hawkes of chunk 2500/8047
+Computing Hawkes of chunk 2600/8047
+Computing Hawkes of chunk 2700/8047
+Computing Hawkes of chunk 2800/8047
+Computing Hawkes of chunk 2900/8047
+Computing Hawkes of chunk 3000/8047
+Computing Hawkes of chunk 3100/8047
+Computing Hawkes of chunk 3200/8047
+Computing Hawkes of chunk 3300/8047
+Computing Hawkes of chunk 3400/8047
+Computing Hawkes of chunk 3500/8047
+Computing Hawkes of chunk 3600/8047
+Computing Hawkes of chunk 3700/8047
+Computing Hawkes of chunk 3800/8047
+Computing Hawkes of chunk 3900/8047
+Computing Hawkes of chunk 4000/8047
+Computing Hawkes of chunk 4100/8047
+Computing Hawkes of chunk 4200/8047
+Computing Hawkes of chunk 4300/8047
+Computing Hawkes of chunk 4400/8047
+Computing Hawkes of chunk 4500/8047
+Computing Hawkes of chunk 4600/8047
+Computing Hawkes of chunk 4700/8047
+Computing Hawkes of chunk 4800/8047
+Computing Hawkes of chunk 4900/8047
+Computing Hawkes of chunk 5000/8047
+Computing Hawkes of chunk 5100/8047
+Computing Hawkes of chunk 5200/8047
+Computing Hawkes of chunk 5300/8047
+Computing Hawkes of chunk 5400/8047
+Computing Hawkes of chunk 5500/8047
+Computing Hawkes of chunk 5600/8047
+Computing Hawkes of chunk 5700/8047
+Computing Hawkes of chunk 5800/8047
+Computing Hawkes of chunk 5900/8047
+Computing Hawkes of chunk 6000/8047
+Computing Hawkes of chunk 6100/8047
+Computing Hawkes of chunk 6200/8047
+Computing Hawkes of chunk 6300/8047
+Computing Hawkes of chunk 6400/8047
+Computing Hawkes of chunk 6500/8047
+Computing Hawkes of chunk 6600/8047
+Computing Hawkes of chunk 6700/8047
+Computing Hawkes of chunk 6800/8047
+Computing Hawkes of chunk 6900/8047
+Computing Hawkes of chunk 7000/8047
+Computing Hawkes of chunk 7100/8047
+Computing Hawkes of chunk 7200/8047
+Computing Hawkes of chunk 7300/8047
+Computing Hawkes of chunk 7400/8047
+Computing Hawkes of chunk 7500/8047
+Computing Hawkes of chunk 7600/8047
+Computing Hawkes of chunk 7700/8047
+Computing Hawkes of chunk 7800/8047
+Computing Hawkes of chunk 7900/8047
+Computing Hawkes of chunk 8000/8047
+# Empty log: 0
+run 11: logs.pkl selesai dalam 4634s
