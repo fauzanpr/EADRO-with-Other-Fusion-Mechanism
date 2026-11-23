@@ -178,3 +178,75 @@ Best score got at epoch: 4
 * Test result -- F1:0.9417	Rec:0.9923	Pre:0.8960	HR@1:0.4069	ndcg@1:0.4069	HR@3:0.4996	ndcg@3:0.4617	HR@5:0.5384	ndcg@5:0.4775	F1(std):0.9240	Rec(std):0.9898	Pre(std):0.8664	HR@1(std):0.5392	ndcg@1(std):0.5392	HR@3(std):0.6621	ndcg@3(std):0.6118	HR@5(std):0.7134	ndcg@5(std):0.6328	val_score:0.8333	val_HR@1:0.4424
 Best score got at epoch: 14
 ========================================
+1bdbd736: 2026/11/22-20:45:54
+* Test result -- F1:0.7898	Rec:0.8494	Pre:0.7381	HR@1:0.3902	ndcg@1:0.3902	HR@3:0.4863	ndcg@3:0.4440	HR@5:0.5265	ndcg@5:0.4606	F1(std):0.7366	Rec(std):0.8076	Pre(std):0.6771	HR@1(std):0.4984	ndcg@1(std):0.4984	HR@3(std):0.6212	ndcg@3(std):0.5672	HR@5(std):0.6726	ndcg@5(std):0.5884	val_score:0.7083	val_HR@1:0.4051
+Best score got at epoch: 14
+========================================
+cf1f32de: 2026/11/22-21:02:19
+* Test result -- F1:0.8862	Rec:0.9311	Pre:0.8454	HR@1:0.3720	ndcg@1:0.3720	HR@3:0.4840	ndcg@3:0.4366	HR@5:0.5218	ndcg@5:0.4521	F1(std):0.8415	Rec(std):0.9021	Pre(std):0.7885	HR@1(std):0.5284	ndcg@1(std):0.5284	HR@3(std):0.6875	ndcg@3(std):0.6202	HR@5(std):0.7413	ndcg@5(std):0.6422	val_score:0.7797	val_HR@1:0.4605
+Best score got at epoch: 14
+========================================
+0722a6da: 2026/11/22-21:18:19
+* Test result -- F1:0.8919	Rec:0.9250	Pre:0.8610	HR@1:0.3183	ndcg@1:0.3183	HR@3:0.4218	ndcg@3:0.3785	HR@5:0.4610	ndcg@5:0.3945	F1(std):0.8461	Rec(std):0.8916	Pre(std):0.8050	HR@1(std):0.4605	ndcg@1(std):0.4605	HR@3(std):0.6102	ndcg@3(std):0.5475	HR@5(std):0.6669	ndcg@5(std):0.5707	val_score:0.7421	val_HR@1:0.4883
+Best score got at epoch: 9
+========================================
+396575de: 2026/11/22-21:34:57
+* Test result -- F1:0.8317	Rec:0.9512	Pre:0.7389	HR@1:0.4892	ndcg@1:0.4892	HR@3:0.5846	ndcg@3:0.5468	HR@5:0.6463	ndcg@5:0.5724	F1(std):0.7968	Rec(std):0.9392	Pre(std):0.6919	HR@1(std):0.6087	ndcg@1(std):0.6087	HR@3(std):0.7274	ndcg@3(std):0.6804	HR@5(std):0.8043	ndcg@5(std):0.7123	val_score:0.7465	val_HR@1:0.4867
+Best score got at epoch: 14
+========================================
+dc45427f: 2026/11/22-21:50:21
+* Test result -- F1:0.8190	Rec:0.9129	Pre:0.7426	HR@1:0.5922	ndcg@1:0.5922	HR@3:0.6299	ndcg@3:0.6146	HR@5:0.6400	ndcg@5:0.6187	F1(std):0.7627	Rec(std):0.8816	Pre(std):0.6721	HR@1(std):0.8050	ndcg@1(std):0.8050	HR@3(std):0.8562	ndcg@3(std):0.8354	HR@5(std):0.8699	ndcg@5(std):0.8409	val_score:0.9039	val_HR@1:0.6580
+Best score got at epoch: 14
+========================================
+adbbf987: 2026/11/22-22:05:48
+* Test result -- F1:0.8151	Rec:0.9434	Pre:0.7175	HR@1:0.6413	ndcg@1:0.6413	HR@3:0.6806	ndcg@3:0.6649	HR@5:0.6890	ndcg@5:0.6684	F1(std):0.7684	Rec(std):0.9262	Pre(std):0.6565	HR@1(std):0.8367	ndcg@1(std):0.8367	HR@3(std):0.8880	ndcg@3(std):0.8676	HR@5(std):0.8989	ndcg@5(std):0.8721	val_score:0.9581	val_HR@1:0.6421
+Best score got at epoch: 14
+========================================
+e9ab69fe: 2026/11/22-22:20:27
+* Test result -- F1:0.7894	Rec:0.9415	Pre:0.6796	HR@1:0.6462	ndcg@1:0.6462	HR@3:0.6992	ndcg@3:0.6775	HR@5:0.7109	ndcg@5:0.6823	F1(std):0.7487	Rec(std):0.9275	Pre(std):0.6277	HR@1(std):0.8008	ndcg@1(std):0.8008	HR@3(std):0.8665	ndcg@3(std):0.8396	HR@5(std):0.8810	ndcg@5(std):0.8456	val_score:0.9525	val_HR@1:0.6418
+Best score got at epoch: 9
+========================================
+9f535625: 2026/11/22-22:35:18
+* Test result -- F1:0.8452	Rec:0.9843	Pre:0.7405	HR@1:0.6454	ndcg@1:0.6454	HR@3:0.6946	ndcg@3:0.6748	HR@5:0.7059	ndcg@5:0.6795	F1(std):0.8032	Rec(std):0.9792	Pre(std):0.6809	HR@1(std):0.8587	ndcg@1(std):0.8587	HR@3(std):0.9241	ndcg@3(std):0.8977	HR@5(std):0.9391	ndcg@5(std):0.9040	val_score:0.9535	val_HR@1:0.6591
+Best score got at epoch: 9
+========================================
+cbd11adb: 2026/11/23-22:49:12
+* Test result -- F1:0.9079	Rec:0.9729	Pre:0.8510	HR@1:0.5458	ndcg@1:0.5458	HR@3:0.5921	ndcg@3:0.5735	HR@5:0.6029	ndcg@5:0.5780	F1(std):0.8640	Rec(std):0.9586	Pre(std):0.7863	HR@1(std):0.8344	ndcg@1(std):0.8344	HR@3(std):0.9052	ndcg@3(std):0.8768	HR@5(std):0.9218	ndcg@5(std):0.8837	val_score:0.9634	val_HR@1:0.6553
+Best score got at epoch: 9
+========================================
+5968bb95: 2026/11/23-23:05:31
+* Test result -- F1:0.9107	Rec:0.9841	Pre:0.8475	HR@1:0.5838	ndcg@1:0.5838	HR@3:0.6183	ndcg@3:0.6051	HR@5:0.6209	ndcg@5:0.6062	F1(std):0.8694	Rec(std):0.9759	Pre(std):0.7838	HR@1(std):0.8875	ndcg@1(std):0.8875	HR@3(std):0.9399	ndcg@3(std):0.9199	HR@5(std):0.9439	ndcg@5(std):0.9215	val_score:0.9809	val_HR@1:0.6586
+Best score got at epoch: 9
+========================================
+6489b734: 2026/11/23-23:20:54
+* Test result -- F1:0.7482	Rec:0.9726	Pre:0.6079	HR@1:0.7825	ndcg@1:0.7825	HR@3:0.8418	ndcg@3:0.8170	HR@5:0.8567	ndcg@5:0.8231	F1(std):0.7293	Rec(std):0.9699	Pre(std):0.5844	HR@1(std):0.8604	ndcg@1(std):0.8604	HR@3(std):0.9256	ndcg@3(std):0.8984	HR@5(std):0.9421	ndcg@5(std):0.9051	val_score:0.9475	val_HR@1:0.6991
+Best score got at epoch: 9
+========================================
+aef2aeac: 2026/11/23-23:36:10
+* Test result -- F1:0.7947	Rec:0.9462	Pre:0.6850	HR@1:0.6699	ndcg@1:0.6699	HR@3:0.7063	ndcg@3:0.6913	HR@5:0.7226	ndcg@5:0.6979	F1(std):0.7537	Rec(std):0.9329	Pre(std):0.6323	HR@1(std):0.8352	ndcg@1(std):0.8352	HR@3(std):0.8806	ndcg@3(std):0.8619	HR@5(std):0.9009	ndcg@5(std):0.8701	val_score:0.9686	val_HR@1:0.6627
+Best score got at epoch: 9
+========================================
+d87d4277: 2026/11/23-23:51:29
+* Test result -- F1:0.8718	Rec:0.9581	Pre:0.7997	HR@1:0.5974	ndcg@1:0.5974	HR@3:0.6257	ndcg@3:0.6145	HR@5:0.6312	ndcg@5:0.6168	F1(std):0.8221	Rec(std):0.9396	Pre(std):0.7307	HR@1(std):0.8620	ndcg@1(std):0.8620	HR@3(std):0.9028	ndcg@3(std):0.8867	HR@5(std):0.9108	ndcg@5(std):0.8900	val_score:0.9697	val_HR@1:0.6529
+Best score got at epoch: 14
+========================================
+84aa71ec: 2026/11/24-00:08:24
+* Test result -- F1:0.8924	Rec:0.9429	Pre:0.8470	HR@1:0.4142	ndcg@1:0.4142	HR@3:0.5111	ndcg@3:0.4716	HR@5:0.5468	ndcg@5:0.4864	F1(std):0.8505	Rec(std):0.9189	Pre(std):0.7915	HR@1(std):0.5884	ndcg@1(std):0.5884	HR@3(std):0.7261	ndcg@3(std):0.6699	HR@5(std):0.7767	ndcg@5(std):0.6910	val_score:0.7675	val_HR@1:0.4323
+Best score got at epoch: 9
+========================================
+554c1bcb: 2026/11/24-00:26:07
+* Test result -- F1:0.8993	Rec:0.9490	Pre:0.8545	HR@1:0.4460	ndcg@1:0.4460	HR@3:0.5265	ndcg@3:0.4952	HR@5:0.5553	ndcg@5:0.5066	F1(std):0.8591	Rec(std):0.9271	Pre(std):0.8004	HR@1(std):0.6384	ndcg@1(std):0.6384	HR@3(std):0.7536	ndcg@3(std):0.7088	HR@5(std):0.7948	ndcg@5(std):0.7252	val_score:0.7849	val_HR@1:0.4478
+Best score got at epoch: 14
+========================================
+0fef96b6: 2026/11/24-00:43:46
+* Test result -- F1:0.8772	Rec:0.9691	Pre:0.8012	HR@1:0.4621	ndcg@1:0.4621	HR@3:0.5563	ndcg@3:0.5179	HR@5:0.5891	ndcg@5:0.5314	F1(std):0.8405	Rec(std):0.9585	Pre(std):0.7484	HR@1(std):0.6193	ndcg@1(std):0.6193	HR@3(std):0.7456	ndcg@3(std):0.6941	HR@5(std):0.7896	ndcg@5(std):0.7122	val_score:0.7724	val_HR@1:0.4464
+Best score got at epoch: 14
+========================================
+4bb3c05f: 2026/11/24-01:00:42
+* Test result -- F1:0.9068	Rec:0.9467	Pre:0.8702	HR@1:0.3869	ndcg@1:0.3869	HR@3:0.4880	ndcg@3:0.4437	HR@5:0.5170	ndcg@5:0.4557	F1(std):0.8668	Rec(std):0.9223	Pre(std):0.8176	HR@1(std):0.5637	ndcg@1(std):0.5637	HR@3(std):0.7110	ndcg@3(std):0.6464	HR@5(std):0.7531	ndcg@5(std):0.6639	val_score:0.7608	val_HR@1:0.4148
+Best score got at epoch: 9
+========================================
+89338a40: 2026/11/24-01:17:40
+* Test result -- F1:0.9109	Rec:0.9700	Pre:0.8585	HR@1:0.4279	ndcg@1:0.4279	HR@3:0.5265	ndcg@3:0.4856	HR@5:0.5571	ndcg@5:0.4983	F1(std):0.8755	Rec(std):0.9570	Pre(std):0.8068	HR@1(std):0.6134	ndcg@1(std):0.6134	HR@3(std):0.7547	ndcg@3(std):0.6961	HR@5(std):0.7986	ndcg@5(std):0.7143	val_score:0.7943	val_HR@1:0.4640
+Best score got at epoch: 9
+========================================

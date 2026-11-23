@@ -77,7 +77,26 @@ Tabel biaya di atas belum cukup sebagai ukuran efisiensi (hanya biaya, dan beber
 - **FLOPs bukan proxy yang baik untuk biaya T di model ini:** FLOPs hanya naik 2×, tetapi waktu latih 6× dan inferensi batch 10×. Dugaan (belum diuji dengan profiler): waktu dibatasi memori pada tensor aktivasi yang tumbuh dengan T.
 - **Inferensi satu jendela tidak menjadi hambatan di T mana pun:** 1,9–2,9 ms, kurang dari 0,5% dari 1 detik antar jendela (stride 1). Yang membedakan T secara operasional adalah **latensi deteksi**: model baru bisa memutuskan setelah T detik data terkumpul.
 - **Kualitas melawan biaya** (`Report/Gambar_Efisiensi_T.png`): di `within_event` hanya langkah T = 10 → 30 yang memberi kenaikan signifikan (F1 +0,077) dengan biaya latih ×2,5. Dari T = 30 ke 60 biaya naik ×2,2 lagi untuk F1 +0,048 dan HR@1 +0,010 (di dalam sd). Di `leave_event_out` tidak ada T yang mengalahkan T = 10 pada HR@1, sementara biaya naik ×2,4 sampai ×5,5.
-- **Varian fusion** (T = 10, lima varian yang ada di kode; F3 dan F4 belum diimplementasi): parameter dan FLOPs berbeda (−14% untuk `concat_fc`, `sum`, `attn`; +29% untuk `lmf`, dibanding `concat_glu`), tetapi **waktu tidak berbeda terukur** (selisih di bawah derau). Biaya akibat T (6–10×) jauh melampaui biaya akibat pilihan fusion, jadi efisiensi bukan penentu pemilihan fusion; kualitas yang menentukan.
+- **Varian fusion** (T = 10, varian yang ada di kode; F4 belum diimplementasi): parameter dan FLOPs berbeda (−14% untuk `concat_fc`, `sum`, `attn`; +28% untuk F3 `gmu` dan +29% untuk `lmf`, dibanding `concat_glu`), tetapi **waktu tidak berbeda terukur** (selisih di bawah derau). Pembaruan 23 November: F3 = Gated Multimodal Unit, hasil di `Laporan_Fusion_F1_vs_F2.md` bagian 10. Biaya akibat T (6–10×) jauh melampaui biaya akibat pilihan fusion, jadi efisiensi bukan penentu pemilihan fusion; kualitas yang menentukan.
+
+### 2.2 Efektivitas dan efisiensi dalam satu tabel
+
+Efektivitas = rata-rata ± sd 3 seed (Test, std; tebal = terbaik per kolom). Efisiensi = biaya per jendela (latih dari log run nyata; FLOPs, latensi, dan inferensi batch dari pengukuran tanpa data, bagian 2.1). Parameter model hanya naik dari 65.400 (T = 5) ke 72.550 (T = 60), jadi tidak ditampilkan.
+
+| T | F1 `within` | HR@1 `within` | F1 `leave` | HR@1 `leave` | Latih (ms/jendela) | FLOPs (juta) | Latensi 1 jendela (ms) | Inferensi batch 256 (ms/jendela) | Latensi deteksi (detik) |
+|---|---|---|---|---|---|---|---|---|---|
+| 5 | 0,743 ± 0,036 | 0,799 ± 0,011 | – | – | 0,78 | 3,24 | 1,95 | 0,18 | 5 |
+| 10 | 0,767 ± 0,017 | 0,822 ± 0,031 | 0,806 ± 0,036 | **0,650 ± 0,099** | 1,26 | 3,59 | 1,86 | 0,26 | 10 |
+| 30 | 0,844 ± 0,009 | 0,832 ± 0,010 | 0,837 ± 0,048 | 0,517 ± 0,068 | 3,20 | 4,97 | 2,39 | 1,06 | 30 |
+| 40 | 0,823 ± 0,047 | 0,824 ± 0,084 | 0,877 ± 0,059 | 0,576 ± 0,068 | 4,42 | 5,66 | 2,52 | 1,55 | 40 |
+| 50 | 0,854 ± 0,039 | **0,850 ± 0,041** | **0,905 ± 0,042** | 0,539 ± 0,090 | 5,76 | 6,35 | 2,69 | 2,01 | 50 |
+| 60 | **0,892 ± 0,059** | 0,842 ± 0,011 | 0,896 ± 0,033 | 0,529 ± 0,045 | 7,17 | 7,04 | 2,89 | 2,63 | 60 |
+| *Selisih 60 − 10* | +0,125 | +0,020 | +0,091 | −0,121 | | | | | |
+| *Rasio 60 ÷ 10* | | | | | **5,7×** | **2,0×** | **1,55×** | **10×** | **6×** |
+
+Dua baris terakhir membandingkan T = 60 dengan T = 10: kolom efektivitas memakai **selisih** (nilai T = 60 dikurangi nilai T = 10, karena metriknya antara 0 dan 1), kolom efisiensi memakai **rasio** (nilai T = 60 dibagi nilai T = 10, yaitu berapa kali lipat). **Satu-satunya selisih efektivitas yang signifikan** terhadap T = 10 (SK 95% tidak mencakup nol) adalah F1 T = 30 di `within_event` (+0,077); semua selisih lain belum bisa dibedakan dari derau dengan 3 seed.
+
+Pembacaan: kolom efektivitas naik pelan dan tidak teratur (F1) atau tidak naik sama sekali (HR@1), sedangkan kolom efisiensi naik hampir lurus (latih, latensi deteksi) atau lebih tajam (inferensi batch). Satu-satunya kolom biaya yang hampir tidak terpengaruh T adalah latensi satu jendela (di bawah 3 ms di semua T).
 
 ## 3. Temuan
 

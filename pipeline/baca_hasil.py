@@ -29,7 +29,7 @@ import pandas as pd  # noqa: E402
 SERIES = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4"]  # biru, oranye, aqua, kuning, magenta
 GRAY = "#c3c2b7"          # de-emphasis (versi kode asli, baseline pada grafik perbandingan)
 SURFACE, INK, INK2, MUTED, GRID, AXIS = "#fcfcfb", "#0b0b0b", "#52514e", "#898781", "#e1e0d9", "#c3c2b7"
-FUSION_ORDER = ["concat_glu", "concat_fc", "sum", "attn", "lmf"]   # warna mengikuti entitas, bukan peringkat
+FUSION_ORDER = ["concat_glu", "concat_fc", "gmu", "sum", "attn", "lmf"]   # warna mengikuti entitas, bukan peringkat
 FUSION_COLOR = dict(zip(FUSION_ORDER, SERIES))
 
 RE_EPOCH = re.compile(r"Epoch (\d+)/(\d+), training loss: ([\d.]+) \[([\d.]+)s\]")

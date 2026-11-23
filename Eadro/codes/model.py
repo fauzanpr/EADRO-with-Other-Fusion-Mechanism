@@ -158,7 +158,7 @@ class LogModel(nn.Module):
 # way the three sources are combined differs; the graph model and the heads downstream are untouched.
 # The released fusion ("concat_glu") stays inline in MultiSourceEncoder (same parameter names as before).
 # ---------------------------------------------------------------------------------------------------------------
-FUSIONS = ["concat_glu", "concat_fc", "sum", "attn", "lmf"]
+FUSIONS = ["concat_glu", "concat_fc", "sum", "attn", "lmf", "gmu"]
 
 class ConcatFC(nn.Module):
     """concat -> Linear -> ReLU: the released fusion without the GLU gate."""
@@ -208,7 +208,34 @@ class LowRankFusion(nn.Module):
             z = z * f(x).view(-1, self.rank, self.out_dim)
         return z.sum(dim=1) + self.bias
 
-FUSION_MODULES = {"concat_fc": ConcatFC, "sum": SumFusion, "attn": ModalityAttention, "lmf": LowRankFusion}
+class GatedMultimodalUnit(nn.Module):
+    """Gated Multimodal Unit (Arevalo et al., ICLR Workshop 2017), multimodal form of Fig. 2a (k = 3 sources):
+        h_i = tanh(W_i x_i)                    for i in (trace, log, metric)
+        z_i = sigmoid(W_zi [x_trace, x_log, x_metric])
+        h   = sum_i z_i * h_i
+    One gate per source and per output dimension, each computed from ALL sources; the gates are independent
+    (not tied to sum to 1 -- tying, z and 1-z, is only the bimodal simplification of Fig. 2b).
+    The paper's equations have no bias terms (Theta = {W_v, W_t, W_z}), so bias=False by default (the authors' code,
+    github.com/johnarevalo/gmu-mmimdb, has no bias either). The gate reads the RAW inputs as in the paper's equations;
+    the authors' bimodal code instead feeds the gate the projections W_i x_i (see docs/F3_GMU.md, section 4.1).
+    The three gate matrices W_z1..W_z3 are stored as one Linear(sum(dims) -> 3*out_dim); this is mathematically identical
+    to three separate Linear layers on the same concatenated input, just one matmul instead of three."""
+    def __init__(self, dims, out_dim, bias=False, **kwargs):
+        super(GatedMultimodalUnit, self).__init__()
+        self.n, self.out_dim = len(dims), out_dim
+        self.proj = nn.ModuleList([nn.Linear(d, out_dim, bias=bias) for d in dims])  # W_i
+        self.gate = nn.Linear(sum(dims), self.n * out_dim, bias=bias)                # [W_z1; W_z2; W_z3]
+        self.last_gates = None # [N, 3, out_dim] (trace, log, metric) of the last forward pass, for inspection
+
+    def forward(self, trace, log, metric):
+        xs = (trace, log, metric)
+        h = torch.stack([torch.tanh(p(x)) for p, x in zip(self.proj, xs)], dim=1)                  #[N, 3, out_dim]
+        z = torch.sigmoid(self.gate(torch.cat(xs, dim=-1))).view(-1, self.n, self.out_dim)        #[N, 3, out_dim]
+        self.last_gates = z.detach()
+        return (z * h).sum(dim=1)                                                                 #[N, out_dim]
+
+FUSION_MODULES = {"concat_fc": ConcatFC, "sum": SumFusion, "attn": ModalityAttention, "lmf": LowRankFusion,
+                  "gmu": GatedMultimodalUnit}
 
 class MultiSourceEncoder(nn.Module):
     def __init__(self, event_num, metric_num, node_num, device, log_dim=64, fuse_dim=64, alpha=0.5, fusion="concat_glu", **kwargs):

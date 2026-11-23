@@ -1029,7 +1029,7 @@ Grafik: `Report/Gambar_Efisiensi_T.png`.
 
 ### 17.5 Biaya varian fusion (T = 10, tanpa latih)
 
-Fusion bekerja pada vektor per node setelah cabang temporal, jadi biayanya tidak bergantung T. Hanya kelima varian yang ada di kode yang diukur; **F3 (Learnable Weighted) dan F4 (Cross-Attention) belum diimplementasi, jadi belum ada angkanya.** Median 3 ronde, [min–maks].
+Fusion bekerja pada vektor per node setelah cabang temporal, jadi biayanya tidak bergantung T. Hanya kelima varian yang ada di kode yang diukur; **F3 (Learnable Weighted) dan F4 (Cross-Attention) belum diimplementasi, jadi belum ada angkanya.** (Pembaruan 23 November: F3 = GMU sudah ada, params 84.354, FLOPs 4,58 M/jendela, +28% terhadap `concat_glu`, waktu tidak beda terukur; lihat `docs/F3_GMU.md` bagian 8.) Median 3 ronde, [min–maks].
 
 | Varian | Parameter fusion | Parameter total | FLOPs (juta) | Latensi 1 jendela (ms) | Batch 256 (ms per jendela) | Langkah latih (ms per jendela) |
 |---|---|---|---|---|---|---|

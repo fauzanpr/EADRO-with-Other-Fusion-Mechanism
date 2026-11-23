@@ -1,0 +1,26 @@
+2026-11-22 12:45:57,382 P203785 INFO Using CPU...
+2026-11-22 12:45:57,382 P203785 INFO Load from ../chunks/A1/leave_event_out
+2026-11-22 12:46:55,732 P203785 INFO Epoch 1/15, training loss: 1.45313 [56.20s]
+2026-11-22 12:47:52,045 P203785 INFO Epoch 2/15, training loss: 0.48022 [56.31s]
+2026-11-22 12:48:48,354 P203785 INFO Epoch 3/15, training loss: 0.23931 [56.31s]
+2026-11-22 12:49:44,615 P203785 INFO Epoch 4/15, training loss: 0.16342 [56.26s]
+2026-11-22 12:49:51,517 P203785 INFO Val -- F1: 0.6986, Rec: 0.9878, Pre: 0.5404, HR@1: 0.4677, ndcg@1: 0.4677, HR@3: 0.5361, ndcg@3: 0.5093, HR@5: 0.5469, ndcg@5: 0.5138, F1(std): 0.5674, Rec(std): 0.9786, Pre(std): 0.3995, HR@1(std): 0.8191, ndcg@1(std): 0.8191, HR@3(std): 0.9389, ndcg@3(std): 0.8919, HR@5(std): 0.9577, ndcg@5(std): 0.8998
+2026-11-22 12:50:28,867 P203785 INFO Test -- F1: 0.8458, Rec: 0.9107, Pre: 0.7895, HR@1: 0.3633, ndcg@1: 0.3633, HR@3: 0.4607, ndcg@3: 0.4194, HR@5: 0.5080, ndcg@5: 0.4389, F1(std): 0.7985, Rec(std): 0.8805, Pre(std): 0.7305, HR@1(std): 0.4860, ndcg@1(std): 0.4860, HR@3(std): 0.6163, ndcg@3(std): 0.5610, HR@5(std): 0.6796, ndcg@5(std): 0.5871
+2026-11-22 12:51:25,289 P203785 INFO Epoch 5/15, training loss: 0.12475 [56.42s]
+2026-11-22 12:52:21,600 P203785 INFO Epoch 6/15, training loss: 0.11277 [56.31s]
+2026-11-22 12:53:17,868 P203785 INFO Epoch 7/15, training loss: 0.10410 [56.27s]
+2026-11-22 12:54:14,189 P203785 INFO Epoch 8/15, training loss: 0.10936 [56.32s]
+2026-11-22 12:55:10,672 P203785 INFO Epoch 9/15, training loss: 0.09087 [56.48s]
+2026-11-22 12:55:17,694 P203785 INFO Val -- F1: 0.7504, Rec: 0.9929, Pre: 0.6031, HR@1: 0.4652, ndcg@1: 0.4652, HR@3: 0.4989, ndcg@3: 0.4854, HR@5: 0.4996, ndcg@5: 0.4857, F1(std): 0.6051, Rec(std): 0.9862, Pre(std): 0.4364, HR@1(std): 0.9066, ndcg@1(std): 0.9066, HR@3(std): 0.9724, ndcg@3(std): 0.9461, HR@5(std): 0.9736, ndcg@5(std): 0.9466
+2026-11-22 12:55:55,792 P203785 INFO Test -- F1: 0.8962, Rec: 0.9181, Pre: 0.8753, HR@1: 0.3450, ndcg@1: 0.3450, HR@3: 0.4483, ndcg@3: 0.4051, HR@5: 0.4823, ndcg@5: 0.4192, F1(std): 0.8491, Rec(std): 0.8796, Pre(std): 0.8206, HR@1(std): 0.5073, ndcg@1(std): 0.5073, HR@3(std): 0.6592, ndcg@3(std): 0.5957, HR@5(std): 0.7092, ndcg@5(std): 0.6164
+2026-11-22 12:56:52,193 P203785 INFO Epoch 10/15, training loss: 0.07646 [56.40s]
+2026-11-22 12:57:48,963 P203785 INFO Epoch 11/15, training loss: 0.07924 [56.77s]
+2026-11-22 12:58:45,293 P203785 INFO Epoch 12/15, training loss: 0.07825 [56.33s]
+2026-11-22 12:59:41,530 P203785 INFO Epoch 13/15, training loss: 0.06990 [56.24s]
+2026-11-22 13:00:37,960 P203785 INFO Epoch 14/15, training loss: 0.06656 [56.43s]
+2026-11-22 13:00:44,903 P203785 INFO Val -- F1: 0.7719, Rec: 0.9979, Pre: 0.6294, HR@1: 0.4605, ndcg@1: 0.4605, HR@3: 0.4838, ndcg@3: 0.4744, HR@5: 0.4842, ndcg@5: 0.4746, F1(std): 0.6246, Rec(std): 0.9958, Pre(std): 0.4550, HR@1(std): 0.9347, ndcg@1(std): 0.9347, HR@3(std): 0.9820, ndcg@3(std): 0.9630, HR@5(std): 0.9828, ndcg@5(std): 0.9634
+2026-11-22 13:01:22,582 P203785 INFO Test -- F1: 0.8862, Rec: 0.9311, Pre: 0.8454, HR@1: 0.3720, ndcg@1: 0.3720, HR@3: 0.4840, ndcg@3: 0.4366, HR@5: 0.5218, ndcg@5: 0.4521, F1(std): 0.8415, Rec(std): 0.9021, Pre(std): 0.7885, HR@1(std): 0.5284, ndcg@1(std): 0.5284, HR@3(std): 0.6875, ndcg@3(std): 0.6202, HR@5(std): 0.7413, ndcg@5(std): 0.6422
+2026-11-22 13:02:19,020 P203785 INFO Epoch 15/15, training loss: 0.05979 [56.43s]
+2026-11-22 13:02:19,020 P203785 INFO * Best result got at epoch 14 with validation combo: 0.7797
+2026-11-22 13:02:19,370 P203785 INFO Efficiency -- params_total: 56770, params_fusion: 9280, infer_ms_per_window: 0.2566, peak_rss_mb: 2788
+2026-11-22 13:02:19,370 P203785 INFO Current hash_id cf1f32de
