@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| Tanggal | 22 November 2026 |
+| Tanggal | 22 November 2026 (pembaruan 24 November: bagian 2.3 dan status di bagian 5; pembaruan 25 November: status fusion T = 30 di bagian 5) |
 | Untuk | Pak Fitra |
 | Cakupan | Dataset Train Ticket (TT), model EADRO dengan fusion `concat_glu` |
 | Rincian lengkap | `Report/Temuan_Data_dan_Sweep_T.md` (bagian 10–16) |
@@ -98,6 +98,23 @@ Dua baris terakhir membandingkan T = 60 dengan T = 10: kolom efektivitas memakai
 
 Pembacaan: kolom efektivitas naik pelan dan tidak teratur (F1) atau tidak naik sama sekali (HR@1), sedangkan kolom efisiensi naik hampir lurus (latih, latensi deteksi) atau lebih tajam (inferensi batch). Satu-satunya kolom biaya yang hampir tidak terpengaruh T adalah latensi satu jendela (di bawah 3 ms di semua T).
 
+### 2.3 Pembaruan 24 November: apakah 15 epoch cukup di T = 30?
+
+Karena T = 30 diusulkan sebagai T pembanding fusion, kami menjalankan F1 dengan **30 epoch** (seed 42) di T = 30 untuk memeriksa konvergensi. Rincian di `Perbandingan_Seluruh_Eksperimen.md` bagian 5.8.
+
+| Seed 42, T = 30 | Epoch terpilih | F1(std) | HR@1(std) | HR@1 bersyarat | FPR |
+|---|---|---|---|---|---|
+| `within_event`, 15 epoch | 9 | 0,847 | 0,837 | 0,871 | 0,44 |
+| `within_event`, 30 epoch | 9 | 0,847 | 0,837 | 0,871 | 0,44 |
+| `leave_event_out`, 15 epoch | 4 | 0,783 | 0,477 | 0,557 | 0,56 |
+| `leave_event_out`, 30 epoch | 29 | 0,787 | 0,507 | 0,604 | 0,51 |
+| Pembanding: `leave_event_out` T = 10, 15 epoch | 14 | 0,766 | 0,566 | 0,648 | 0,62 |
+
+- `within_event`: Val memuncak di epoch 9, jadi hasil 30 epoch identik dengan 15 epoch. **15 epoch cukup.**
+- `leave_event_out`: Val masih naik sampai epoch 29, tetapi Test hanya sedikit membaik (HR@1 +0,03, di bawah sebaran antar seed). Lokalisasi T = 30 tetap di bawah T = 10 walau dilatih 30 epoch, jadi lokalisasi yang rendah di T besar **bukan karena kurang epoch**.
+- Biaya: 30 epoch di T = 30 memakan ±66–76 menit per run (kecepatan normal), hampir sama dengan 15 epoch di T = 50.
+- Ini satu seed, jadi dibaca sebagai petunjuk.
+
 ## 3. Temuan
 
 1. **Deteksi (F1, Recall, alarm palsu) cenderung membaik saat T naik.** Di `within_event` F1 naik dari 0,743 (T = 5) ke 0,892 (T = 60) dan alarm palsu turun dari 0,74 ke 0,42; kenaikannya tidak monoton (T = 40 di bawah T = 30). Di `leave_event_out` F1 naik dari 0,806 (T = 10) ke 0,905 (T = 50), lalu mendatar di T = 60 (0,896).
@@ -114,7 +131,7 @@ Pembacaan: kolom efektivitas naik pelan dan tidak teratur (F1) atau tidak naik s
 
 - **Hanya 3 seed.** Dengan sd HR@1 0,05–0,10, selisih di bawah ±0,2 tidak bisa dibedakan dari derau. 5 seed atau lebih akan memperjelas temuan 1 dan 2.
 - **Data Test tidak identik antar T.** Jendela yang makin panjang membuat jumlah jendela uji, jendela yang dibuang di batas pembagian, dan porsi normal berubah (porsi normal di Test `within_event`: 44% pada T = 10 menjadi 36% pada T = 60). Sebagian selisih antar T bisa berasal dari komposisi data, bukan dari T.
-- **15 epoch kemungkinan kurang untuk T besar.** Epoch 14 (evaluasi terakhir) dipilih pada ketiga seed di `within_event` T = 50 dan 60, dan pada 8 dari 12 run `leave_event_out` T ≥ 30. Belum diuji apakah epoch lebih panjang mengubah kesimpulan.
+- **15 epoch kemungkinan kurang untuk T besar.** Epoch 14 (evaluasi terakhir) dipilih pada ketiga seed di `within_event` T = 50 dan 60, dan pada 8 dari 12 run `leave_event_out` T ≥ 30. Di T = 30 sudah dicek dengan 30 epoch (bagian 2.3, satu seed): cukup untuk `within_event`, dan di `leave_event_out` Test hampir tidak berubah. T = 40–60 belum dicek.
 - **Val kecil di T besar** (T = 60 `within_event`: hanya 1.034 jendela gangguan), dan di `leave_event_out` Val tidak mewakili Test (HR@1 Val ±0,8 vs Test ±0,5).
 - **Hanya `concat_glu`.** Apakah pola ini sama untuk fusion lain belum diketahui; itu justru tujuan utama proyek.
 - Seluruh angka waktu dan RAM berasal dari satu laptop CPU dan tidak boleh dibandingkan dengan hardware lain. Ukuran efisiensi di bagian 2.1 memakai data acak berbentuk sama (nilai absolut sintetis 15–30% di atas run nyata, jadi hanya rasio antar T yang dipakai), FLOPs hanya menghitung matmul dan konvolusi, dan biaya ekstraksi fitur nyata per jendela belum diukur.
@@ -125,3 +142,20 @@ Pembacaan: kolom efektivitas naik pelan dan tidak teratur (F1) atau tidak naik s
 2. **Skema untuk perbandingan fusion:** usulan `leave_event_out`, karena F1 dan F2 hanya berbeda arah di skema itu.
 3. **Jumlah seed:** apakah cukup 3, atau dinaikkan ke 5 untuk perbandingan fusion.
 4. **Ablasi modalitas** (trace, metrik, log sendiri-sendiri) untuk menguji hipotesis trace, dan **epoch lebih panjang** untuk T besar: apakah perlu dikerjakan sebelum F3/F4, atau sesudahnya.
+
+**Status per 24–25 November (menunggu konfirmasi Bapak):** perbandingan fusion F1/F2/F3 di T = 10 sudah selesai dengan 5 seed di kedua skema (`Laporan_Fusion_F1_vs_F2.md` bagian 9–10). Rencana berikutnya: **T = 30 sebagai T pembanding**, dengan 5 seed, `within_event` 15 epoch dan `leave_event_out` 30 epoch (berdasarkan bagian 2.3). Epoch sama untuk semua fusion di dalam satu T dan skema. T = 50 ditunda karena 15 epoch tampaknya belum cukup di sana dan biayanya hampir dua kali T = 30. **T = 30 `within_event` sudah selesai** (5 seed, F1/F2/F3): ketiga fusion setara untuk deteksi dan lokalisasi, dan keunggulan F3 maupun F2 yang terlihat di T = 10 tidak berulang (`Laporan_Fusion_F1_vs_F2.md` bagian 11).
+
+**T = 30 `leave_event_out` (30 epoch, 5 seed) selesai 25 November** (`Laporan_Fusion_F1_vs_F2.md` bagian 12):
+
+| T = 30 `leave_event_out` | F1 `concat_glu` | F2 `concat_fc` | F3 `gmu` |
+|---|---|---|---|
+| F1(std) | 0,849 ± 0,039 | 0,850 ± 0,041 | **0,910 ± 0,020** |
+| Alarm palsu (FPR) | 0,439 | 0,492 | **0,240** |
+| HR@1(std) | 0,560 ± 0,064 | 0,591 ± 0,081 | 0,599 ± 0,063 |
+| Parameter | 68.650 | 59.370 | 86.954 |
+| Detik/epoch | 144 | 143 | 145 |
+
+- Pada event yang belum pernah dilihat, F3 mendeteksi lebih baik dari F1 dan F2 (selisih F1(std) sekitar +0,06, CI 95% tidak memuat 0). Penyebabnya alarm palsu sekitar separuhnya, lebih rendah di kelima seed.
+- Terhadap F1, pengurangan alarm palsu ini juga terlihat di T = 10 `leave_event_out` dengan besar yang hampir sama. Ini selisih fusion pertama yang berulang di dua T.
+- Lokalisasi (HR@1) tidak berbeda antar fusion, di T dan skema mana pun. F2 setara F1 di semua kondisi.
+- Catatan: F3 punya 27% parameter lebih banyak, dan efek kapasitas ini belum dipisahkan. 7 dari 15 run memilih epoch terakhir, jadi mungkin belum konvergen penuh.

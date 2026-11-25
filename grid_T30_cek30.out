@@ -1,0 +1,13 @@
+nohup: ignoring input
+[1/1] mulai 2026-11-23 20:40:20: fusion=concat_glu seed=42
+Skema=within_event data=A1_T30 seed=42 epoch=30 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-23 20:40:20
+2026-11-23 22:18:20,767 P312551 INFO * Best result got at epoch 9 with validation combo: 0.9601
+2026-11-23 22:18:22,573 P312551 INFO Efficiency -- params_total: 68650, params_fusion: 18560, infer_ms_per_window: 1.3832, peak_rss_mb: 5105
+2026-11-23 22:18:22,607 P312551 INFO Current hash_id a3b11e96
+Selesai 2026-11-23 22:18:23
+[1/1] mulai 2026-11-23 22:18:23: fusion=concat_glu seed=42
+Skema=leave_event_out data=A1_T30 seed=42 epoch=30 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-23 22:18:23
+2026-11-24 00:12:50,135 P317410 INFO * Best result got at epoch 29 with validation combo: 0.7904
+2026-11-24 00:12:51,968 P317410 INFO Efficiency -- params_total: 68650, params_fusion: 18560, infer_ms_per_window: 1.4070, peak_rss_mb: 5314
+2026-11-24 00:12:51,969 P317410 INFO Current hash_id 14f5c50b
+Selesai 2026-11-24 00:12:52

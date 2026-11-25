@@ -1,0 +1,45 @@
+2026-11-24 22:53:30,043 P356205 INFO Using CPU...
+2026-11-24 22:53:30,044 P356205 INFO Load from ../chunks/A1_T30/leave_event_out
+2026-11-24 22:55:57,589 P356205 INFO Epoch 1/30, training loss: 1.24326 [144.39s]
+2026-11-24 22:58:22,058 P356205 INFO Epoch 2/30, training loss: 0.20587 [144.47s]
+2026-11-24 23:00:46,608 P356205 INFO Epoch 3/30, training loss: 0.08995 [144.55s]
+2026-11-24 23:03:11,083 P356205 INFO Epoch 4/30, training loss: 0.06681 [144.47s]
+2026-11-24 23:03:21,881 P356205 INFO Val -- F1: 0.7608, Rec: 0.9963, Pre: 0.6154, HR@1: 0.5015, ndcg@1: 0.5015, HR@3: 0.5563, ndcg@3: 0.5350, HR@5: 0.5718, ndcg@5: 0.5413, F1(std): 0.6516, Rec(std): 0.9937, Pre(std): 0.4847, HR@1(std): 0.8509, ndcg@1(std): 0.8509, HR@3(std): 0.9439, ndcg@3(std): 0.9078, HR@5(std): 0.9703, ndcg@5(std): 0.9185
+2026-11-24 23:04:20,437 P356205 INFO Test -- F1: 0.9497, Rec: 0.9998, Pre: 0.9044, HR@1: 0.3909, ndcg@1: 0.3909, HR@3: 0.4914, ndcg@3: 0.4497, HR@5: 0.5192, ndcg@5: 0.4611, F1(std): 0.9295, Rec(std): 0.9997, Pre(std): 0.8685, HR@1(std): 0.5599, ndcg@1(std): 0.5599, HR@3(std): 0.7038, ndcg@3(std): 0.6440, HR@5(std): 0.7436, ndcg@5(std): 0.6604
+2026-11-24 23:06:45,079 P356205 INFO Epoch 5/30, training loss: 0.06938 [144.64s]
+2026-11-24 23:09:09,552 P356205 INFO Epoch 6/30, training loss: 0.05043 [144.47s]
+2026-11-24 23:11:34,139 P356205 INFO Epoch 7/30, training loss: 0.04287 [144.59s]
+2026-11-24 23:13:58,758 P356205 INFO Epoch 8/30, training loss: 0.04096 [144.62s]
+2026-11-24 23:16:23,257 P356205 INFO Epoch 9/30, training loss: 0.05010 [144.50s]
+2026-11-24 23:16:33,895 P356205 INFO Val -- F1: 0.8043, Rec: 0.9838, Pre: 0.6803, HR@1: 0.4517, ndcg@1: 0.4517, HR@3: 0.4973, ndcg@3: 0.4786, HR@5: 0.5029, ndcg@5: 0.4808, F1(std): 0.6827, Rec(std): 0.9694, Pre(std): 0.5269, HR@1(std): 0.8505, ndcg@1(std): 0.8505, HR@3(std): 0.9363, ndcg@3(std): 0.9010, HR@5(std): 0.9468, ndcg@5(std): 0.9053
+2026-11-24 23:17:30,881 P356205 INFO Test -- F1: 0.9354, Rec: 0.9706, Pre: 0.9027, HR@1: 0.3597, ndcg@1: 0.3597, HR@3: 0.4618, ndcg@3: 0.4203, HR@5: 0.4894, ndcg@5: 0.4316, F1(std): 0.9088, Rec(std): 0.9578, Pre(std): 0.8646, HR@1(std): 0.5157, ndcg@1(std): 0.5157, HR@3(std): 0.6620, ndcg@3(std): 0.6026, HR@5(std): 0.7016, ndcg@5(std): 0.6187
+2026-11-24 23:19:55,593 P356205 INFO Epoch 10/30, training loss: 0.03428 [144.71s]
+2026-11-24 23:22:20,127 P356205 INFO Epoch 11/30, training loss: 0.02738 [144.53s]
+2026-11-24 23:24:44,715 P356205 INFO Epoch 12/30, training loss: 0.03040 [144.59s]
+2026-11-24 23:27:09,241 P356205 INFO Epoch 13/30, training loss: 0.02360 [144.53s]
+2026-11-24 23:29:33,820 P356205 INFO Epoch 14/30, training loss: 0.02150 [144.58s]
+2026-11-24 23:29:44,476 P356205 INFO Val -- F1: 0.7808, Rec: 0.9779, Pre: 0.6498, HR@1: 0.4705, ndcg@1: 0.4705, HR@3: 0.5142, ndcg@3: 0.4967, HR@5: 0.5255, ndcg@5: 0.5015, F1(std): 0.6599, Rec(std): 0.9602, Pre(std): 0.5026, HR@1(std): 0.8484, ndcg@1(std): 0.8484, HR@3(std): 0.9271, ndcg@3(std): 0.8956, HR@5(std): 0.9477, ndcg@5(std): 0.9042
+2026-11-24 23:32:09,098 P356205 INFO Epoch 15/30, training loss: 0.02458 [144.62s]
+2026-11-24 23:34:34,015 P356205 INFO Epoch 16/30, training loss: 0.02328 [144.92s]
+2026-11-24 23:36:58,559 P356205 INFO Epoch 17/30, training loss: 0.01486 [144.54s]
+2026-11-24 23:39:23,293 P356205 INFO Epoch 18/30, training loss: 0.01563 [144.73s]
+2026-11-24 23:41:47,972 P356205 INFO Epoch 19/30, training loss: 0.02027 [144.68s]
+2026-11-24 23:41:58,491 P356205 INFO Val -- F1: 0.8468, Rec: 0.9736, Pre: 0.7492, HR@1: 0.4090, ndcg@1: 0.4090, HR@3: 0.4440, ndcg@3: 0.4301, HR@5: 0.4525, ndcg@5: 0.4335, F1(std): 0.7210, Rec(std): 0.9451, Pre(std): 0.5828, HR@1(std): 0.8492, ndcg@1(std): 0.8492, HR@3(std): 0.9221, ndcg@3(std): 0.8931, HR@5(std): 0.9397, ndcg@5(std): 0.9003
+2026-11-24 23:42:55,046 P356205 INFO Test -- F1: 0.9460, Rec: 0.9588, Pre: 0.9335, HR@1: 0.3401, ndcg@1: 0.3401, HR@3: 0.4382, ndcg@3: 0.3964, HR@5: 0.4705, ndcg@5: 0.4098, F1(std): 0.9204, Rec(std): 0.9389, Pre(std): 0.9027, HR@1(std): 0.5041, ndcg@1(std): 0.5041, HR@3(std): 0.6495, ndcg@3(std): 0.5876, HR@5(std): 0.6975, ndcg@5(std): 0.6074
+2026-11-24 23:45:19,962 P356205 INFO Epoch 20/30, training loss: 0.01405 [144.91s]
+2026-11-24 23:47:44,492 P356205 INFO Epoch 21/30, training loss: 0.01356 [144.53s]
+2026-11-24 23:50:09,353 P356205 INFO Epoch 22/30, training loss: 0.01938 [144.86s]
+2026-11-24 23:52:34,102 P356205 INFO Epoch 23/30, training loss: 0.01470 [144.75s]
+2026-11-24 23:54:58,857 P356205 INFO Epoch 24/30, training loss: 0.01388 [144.75s]
+2026-11-24 23:55:09,467 P356205 INFO Val -- F1: 0.8209, Rec: 0.9841, Pre: 0.7042, HR@1: 0.4579, ndcg@1: 0.4579, HR@3: 0.4886, ndcg@3: 0.4759, HR@5: 0.4920, ndcg@5: 0.4773, F1(std): 0.6986, Rec(std): 0.9690, Pre(std): 0.5461, HR@1(std): 0.8920, ndcg@1(std): 0.8920, HR@3(std): 0.9518, ndcg@3(std): 0.9270, HR@5(std): 0.9585, ndcg@5(std): 0.9297
+2026-11-24 23:56:06,740 P356205 INFO Test -- F1: 0.9453, Rec: 0.9728, Pre: 0.9194, HR@1: 0.3738, ndcg@1: 0.3738, HR@3: 0.4794, ndcg@3: 0.4351, HR@5: 0.5240, ndcg@5: 0.4536, F1(std): 0.9212, Rec(std): 0.9603, Pre(std): 0.8852, HR@1(std): 0.5454, ndcg@1(std): 0.5454, HR@3(std): 0.6994, ndcg@3(std): 0.6349, HR@5(std): 0.7646, ndcg@5(std): 0.6617
+2026-11-24 23:58:31,469 P356205 INFO Epoch 25/30, training loss: 0.01028 [144.72s]
+2026-11-25 00:00:56,270 P356205 INFO Epoch 26/30, training loss: 0.01365 [144.80s]
+2026-11-25 00:03:20,963 P356205 INFO Epoch 27/30, training loss: 0.01164 [144.69s]
+2026-11-25 00:05:45,936 P356205 INFO Epoch 28/30, training loss: 0.00796 [144.97s]
+2026-11-25 00:08:10,782 P356205 INFO Epoch 29/30, training loss: 0.00915 [144.84s]
+2026-11-25 00:08:21,473 P356205 INFO Val -- F1: 0.8334, Rec: 0.9806, Pre: 0.7246, HR@1: 0.4384, ndcg@1: 0.4384, HR@3: 0.4699, ndcg@3: 0.4576, HR@5: 0.4781, ndcg@5: 0.4609, F1(std): 0.7096, Rec(std): 0.9611, Pre(std): 0.5625, HR@1(std): 0.8794, ndcg@1(std): 0.8794, HR@3(std): 0.9426, ndcg@3(std): 0.9179, HR@5(std): 0.9590, ndcg@5(std): 0.9245
+2026-11-25 00:10:46,282 P356205 INFO Epoch 30/30, training loss: 0.01511 [144.81s]
+2026-11-25 00:10:46,282 P356205 INFO * Best result got at epoch 24 with validation combo: 0.7953
+2026-11-25 00:10:47,462 P356205 INFO Efficiency -- params_total: 86954, params_fusion: 36864, infer_ms_per_window: 0.9010, peak_rss_mb: 5315
+2026-11-25 00:10:47,462 P356205 INFO Current hash_id 6d0986d0

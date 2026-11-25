@@ -1,0 +1,65 @@
+nohup: ignoring input
+[1/15] lewati (sudah selesai): A1_T30 within_event 15 concat_glu 42 
+[2/15] mulai 2026-11-24 02:22:45: fusion=concat_fc seed=42
+Skema=within_event data=A1_T30 seed=42 epoch=15 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-24 02:22:45
+2026-11-24 02:55:49,504 P326299 INFO * Best result got at epoch 4 with validation combo: 0.9698
+2026-11-24 02:55:50,670 P326299 INFO Efficiency -- params_total: 59370, params_fusion: 9280, infer_ms_per_window: 0.8894, peak_rss_mb: 5104
+2026-11-24 02:55:50,670 P326299 INFO Current hash_id ddfedb71
+[3/15] mulai 2026-11-24 02:55:51: fusion=gmu seed=42
+Skema=within_event data=A1_T30 seed=42 epoch=15 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-24 02:55:51
+2026-11-24 03:31:21,568 P327510 INFO * Best result got at epoch 14 with validation combo: 0.9544
+2026-11-24 03:31:22,765 P327510 INFO Efficiency -- params_total: 86954, params_fusion: 36864, infer_ms_per_window: 0.9126, peak_rss_mb: 5106
+2026-11-24 03:31:22,765 P327510 INFO Current hash_id 21dd8f54
+[4/15] lewati (sudah selesai): A1_T30 within_event 15 concat_glu 7 
+[5/15] mulai 2026-11-24 03:31:23: fusion=concat_fc seed=7
+Skema=within_event data=A1_T30 seed=7 epoch=15 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-24 03:31:23
+2026-11-24 04:05:23,186 P328790 INFO * Best result got at epoch 9 with validation combo: 0.9601
+2026-11-24 04:05:24,370 P328790 INFO Efficiency -- params_total: 59370, params_fusion: 9280, infer_ms_per_window: 0.9035, peak_rss_mb: 5102
+2026-11-24 04:05:24,370 P328790 INFO Current hash_id 2673c03d
+[6/15] mulai 2026-11-24 04:05:25: fusion=gmu seed=7
+Skema=within_event data=A1_T30 seed=7 epoch=15 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-24 04:05:25
+2026-11-24 04:39:57,052 P330051 INFO * Best result got at epoch 9 with validation combo: 0.9726
+2026-11-24 04:39:58,243 P330051 INFO Efficiency -- params_total: 86954, params_fusion: 36864, infer_ms_per_window: 0.9110, peak_rss_mb: 5105
+2026-11-24 04:39:58,244 P330051 INFO Current hash_id 753608fa
+[7/15] lewati (sudah selesai): A1_T30 within_event 15 concat_glu 123 
+[8/15] mulai 2026-11-24 04:39:59: fusion=concat_fc seed=123
+Skema=within_event data=A1_T30 seed=123 epoch=15 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-24 04:39:59
+2026-11-24 05:13:53,696 P331721 INFO * Best result got at epoch 9 with validation combo: 0.9558
+2026-11-24 05:13:54,861 P331721 INFO Efficiency -- params_total: 59370, params_fusion: 9280, infer_ms_per_window: 0.8917, peak_rss_mb: 5102
+2026-11-24 05:13:54,861 P331721 INFO Current hash_id f25d0082
+[9/15] mulai 2026-11-24 05:13:55: fusion=gmu seed=123
+Skema=within_event data=A1_T30 seed=123 epoch=15 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-24 05:13:55
+2026-11-24 05:47:07,859 P332892 INFO * Best result got at epoch 4 with validation combo: 0.9480
+2026-11-24 05:47:09,035 P332892 INFO Efficiency -- params_total: 86954, params_fusion: 36864, infer_ms_per_window: 0.8973, peak_rss_mb: 5105
+2026-11-24 05:47:09,036 P332892 INFO Current hash_id ba3e00db
+[10/15] mulai 2026-11-24 05:47:09: fusion=concat_glu seed=31
+Skema=within_event data=A1_T30 seed=31 epoch=15 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-24 05:47:09
+2026-11-24 06:21:11,235 P334051 INFO * Best result got at epoch 9 with validation combo: 0.9542
+2026-11-24 06:21:12,405 P334051 INFO Efficiency -- params_total: 68650, params_fusion: 18560, infer_ms_per_window: 0.8936, peak_rss_mb: 5104
+2026-11-24 06:21:12,405 P334051 INFO Current hash_id 65d9e54d
+[11/15] mulai 2026-11-24 06:21:13: fusion=concat_fc seed=31
+Skema=within_event data=A1_T30 seed=31 epoch=15 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-24 06:21:13
+2026-11-24 06:55:17,926 P335690 INFO * Best result got at epoch 9 with validation combo: 0.9693
+2026-11-24 06:55:19,089 P335690 INFO Efficiency -- params_total: 59370, params_fusion: 9280, infer_ms_per_window: 0.8861, peak_rss_mb: 5104
+2026-11-24 06:55:19,090 P335690 INFO Current hash_id 6b98a277
+[12/15] mulai 2026-11-24 06:55:19: fusion=gmu seed=31
+Skema=within_event data=A1_T30 seed=31 epoch=15 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-24 06:55:19
+2026-11-24 07:28:51,117 P337009 INFO * Best result got at epoch 4 with validation combo: 0.9380
+2026-11-24 07:28:52,338 P337009 INFO Efficiency -- params_total: 86954, params_fusion: 36864, infer_ms_per_window: 0.9306, peak_rss_mb: 5105
+2026-11-24 07:28:52,339 P337009 INFO Current hash_id 6239cb46
+[13/15] mulai 2026-11-24 07:28:53: fusion=concat_glu seed=2026
+Skema=within_event data=A1_T30 seed=2026 epoch=15 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-24 07:28:53
+2026-11-24 08:02:02,777 P338749 INFO * Best result got at epoch 4 with validation combo: 0.9469
+2026-11-24 08:02:03,964 P338749 INFO Efficiency -- params_total: 68650, params_fusion: 18560, infer_ms_per_window: 0.9031, peak_rss_mb: 5105
+2026-11-24 08:02:03,964 P338749 INFO Current hash_id 19a8eea7
+[14/15] mulai 2026-11-24 08:02:04: fusion=concat_fc seed=2026
+Skema=within_event data=A1_T30 seed=2026 epoch=15 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-24 08:02:04
+2026-11-24 08:35:58,011 P339929 INFO * Best result got at epoch 9 with validation combo: 0.9559
+2026-11-24 08:35:59,180 P339929 INFO Efficiency -- params_total: 59370, params_fusion: 9280, infer_ms_per_window: 0.8936, peak_rss_mb: 5104
+2026-11-24 08:35:59,180 P339929 INFO Current hash_id d1c7f1d7
+[15/15] mulai 2026-11-24 08:35:59: fusion=gmu seed=2026
+Skema=within_event data=A1_T30 seed=2026 epoch=15 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-24 08:35:59
+2026-11-24 09:10:27,327 P341533 INFO * Best result got at epoch 9 with validation combo: 0.9378
+2026-11-24 09:10:28,543 P341533 INFO Efficiency -- params_total: 86954, params_fusion: 36864, infer_ms_per_window: 0.9286, peak_rss_mb: 5106
+2026-11-24 09:10:28,544 P341533 INFO Current hash_id 64d50025
+Selesai 2026-11-24 09:10:29

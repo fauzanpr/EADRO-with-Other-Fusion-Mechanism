@@ -10,9 +10,14 @@
 | Perbedaan antar varian | Hanya modul fusion. Data, kode, environment, dan hyperparameter lain identik (dicek lewat `params.json` dan tanggal berkas) |
 | Perintah F2 | `pipeline/run_grid.sh within_event 15 "42 7 123" "concat_fc"` dan `pipeline/run_grid.sh leave_event_out 15 "42 7 123" "concat_fc"` |
 | Perintah F3 | `pipeline/run_grid.sh within_event 15 "42 7 123 31 2026" "gmu"` lalu `leave_event_out` (keluaran `grid_gmu.out`) |
-| Rekap | `work/envs/train312/bin/python pipeline/rekap_seed.py work/result`; F1/F2/F3: `work/envs/train312/bin/python -I pipeline/banding_fusion.py` |
+| Rekap | `work/envs/train312/bin/python pipeline/rekap_seed.py work/result`; F1/F2/F3: `work/envs/train312/bin/python -I pipeline/banding_fusion.py [T] [epoch] [skema]` (tanpa argumen: T = 10, kedua skema) |
+| T = 30 | Bagian 11 (24 November): `within_event`, 15 epoch, 5 seed. Bagian 12 (25 November): `leave_event_out`, 30 epoch, 5 seed |
 
 Angka F1 berasal dari run baseline yang sama di `Laporan_Eksperimen_Seed.md` dan `Laporan_Efisiensi_F1.md`.
+
+> **Pembaruan 25 November (T = 30 `leave_event_out`, lihat bagian 12).** Di skema event baru, F3 **lebih baik dari F1 dan F2 untuk deteksi**: F1(std) 0,910 vs 0,849 / 0,850 (+0,061, CI +0,013 s.d. +0,109 terhadap F1; +0,060, CI +0,010 s.d. +0,110 terhadap F2). Sumbernya alarm palsu yang jauh lebih sedikit: FPR 0,240 vs 0,439 / 0,492, lebih rendah di kelima seed. Lokalisasi (HR@1(std)) tidak berbeda (0,599 vs 0,560 / 0,591). F2 tetap setara F1. Pengurangan alarm palsu F3 terhadap F1 di `leave_event_out` sekarang muncul di T = 10 dan T = 30. Ini selisih fusion pertama yang berulang di dua T.
+
+> **Pembaruan 24 November (T = 30 `within_event`, lihat bagian 11).** Di T = 30, ketiga fusion setara untuk deteksi dan lokalisasi. F2 − F1 tinggal +0,009 di F1(std), jadi petunjuk F2 di T = 10 tidak berulang. F3 cenderung lebih sedikit alarm palsu (FPR 0,36 vs 0,53, belum terbukti) dan HR@1 bersyaratnya sedikit lebih tinggi (+0,023, CI +0,003 s.d. +0,043). Keunggulan HR@1(std) F3 di T = 10 tidak berulang (+0,004). `leave_event_out` T = 30 belum dijalankan.
 
 > **Pembaruan 23 November (F3 = GMU, lihat bagian 10).** F3 setara atau sedikit lebih baik dari F1: semua selisih rata-rata searah menguntungkan F3, tetapi hanya dua yang CI-nya tidak memuat 0, dan keduanya tipis (HR@1(std) `within_event` +0,042; F1(std) `leave_event_out` +0,059). Terhadap F2 tidak ada selisih terbukti. F3 memakai 28% parameter lebih banyak dari F1.
 
@@ -497,6 +502,196 @@ Kalimat yang aman: **dengan 5 seed, GMU (F3) setara atau sedikit lebih baik dari
 4. **Nilai gate belum dianalisis.** GMU menyimpan bobot per modalitas (`last_gates`). Analisis modalitas mana yang dipakai per layanan atau per jenis gangguan belum dikerjakan.
 5. Keterbatasan bagian 9.6 (n = 5 masih kecil untuk `leave_event_out`, hanya T = 10, seed tidak mengubah pembagian event) juga berlaku.
 
+## 11. Fusion di T = 30, `within_event` (24 November, n = 5)
+
+### 11.1 Apa yang dijalankan
+
+Tujuan: memeriksa apakah urutan fusion di T = 10 (bagian 9–10) juga berlaku pada jendela yang lebih panjang. T = 30 dipilih sebagai T pembanding (`Ringkasan_Sweep_T_untuk_Dosen.md` bagian 4). Pengaturan sama dengan bagian 2, kecuali data `A1_T30`. Untuk `within_event`, 15 epoch dinilai cukup karena run 30 epoch memilih epoch 9 dan memberi Test yang identik (`Perbandingan_Seluruh_Eksperimen.md` bagian 5.8). `leave_event_out` T = 30 dijalankan dengan 30 epoch, hasilnya di bagian 12.
+
+12 run baru (24 November 02.22–09.10, tanpa error, keluaran `grid_T30_15ep_we.out`). F1 seed 42, 7, dan 123 diambil dari sweep T dan dilewati otomatis oleh `run_grid.sh`.
+
+| Fusion | seed 42 | seed 7 | seed 123 | seed 31 | seed 2026 |
+|---|---|---|---|---|---|
+| F1 `concat_glu` | `673f31b9`, 9 | `d746e852`, 4 | `dc8920e0`, 9 | `65d9e54d`, 9 | `19a8eea7`, 4 |
+| F2 `concat_fc` | `ddfedb71`, 4 | `2673c03d`, 9 | `f25d0082`, 9 | `6b98a277`, 9 | `d1c7f1d7`, 9 |
+| F3 `gmu` | `21dd8f54`, 14 | `753608fa`, 9 | `ba3e00db`, 4 | `6239cb46`, 4 | `64d50025`, 9 |
+
+Isi sel: hash run, epoch terpilih. Perintah:
+
+```bash
+DATA_NAME=A1_T30 nohup pipeline/run_grid.sh within_event 15 "42 7 123 31 2026" "concat_glu concat_fc gmu" > grid_T30_15ep_we.out 2>&1 &
+work/envs/train312/bin/python -I pipeline/banding_fusion.py 30 15 within_event
+```
+
+Cek determinisme: run F1 seed 42 dengan 30 epoch (`a3b11e96`, epoch terpilih 9) memberi Test yang sama persis dengan run 15 epoch (`673f31b9`, epoch 9). Seed yang sama memberi lintasan latih yang sama.
+
+### 11.2 Hasil (n = 5)
+
+Test `within_event` T = 30: 17.990 jendela gangguan dan 12.520 normal. Selisih dan CI dihitung seperti bagian 9.2. **Tebal** artinya CI tidak memuat 0.
+
+| Ukuran | F1 | F2 | F3 | F2 − F1 (CI) | p | F3 − F1 (CI) | p | F3 − F2 (CI) | p |
+|---|---|---|---|---|---|---|---|---|---|
+| F1(std) | 0,829 ± 0,021 | 0,839 ± 0,022 | 0,865 ± 0,049 | +0,009 (−0,022 s.d. +0,041) | 0,508 | +0,035 (−0,025 s.d. +0,095) | 0,183 | +0,026 (−0,034 s.d. +0,086) | 0,317 |
+| Precision(std) | 0,725 ± 0,034 | 0,742 ± 0,031 | 0,798 ± 0,084 | +0,017 | 0,437 | +0,073 (−0,029 s.d. +0,175) | 0,127 | +0,057 | 0,190 |
+| Recall(std) | 0,970 ± 0,009 | 0,966 ± 0,020 | 0,949 ± 0,026 | −0,004 | 0,643 | −0,021 (−0,053 s.d. +0,011) | 0,127 | −0,017 | 0,262 |
+| HR@1(std) | 0,833 ± 0,010 | 0,828 ± 0,016 | 0,837 ± 0,034 | −0,005 (−0,025 s.d. +0,015) | 0,603 | +0,004 (−0,038 s.d. +0,045) | 0,833 | +0,009 | 0,619 |
+| HR@3(std) | 0,913 ± 0,010 | 0,906 ± 0,025 | 0,908 ± 0,034 | −0,007 | 0,595 | −0,005 | 0,897 | +0,002 | 0,952 |
+| NDCG@3(std) | 0,881 ± 0,009 | 0,874 ± 0,021 | 0,880 ± 0,034 | −0,006 | 0,595 | −0,001 | 0,960 | +0,005 | 0,762 |
+| FPR (turunan) | 0,532 ± 0,095 | 0,486 ± 0,078 | 0,362 ± 0,194 | −0,047 (−0,175 s.d. +0,081) | 0,444 | −0,171 (−0,409 s.d. +0,068) | 0,111 | −0,124 (−0,361 s.d. +0,113) | 0,230 |
+| HR@1 bersyarat | 0,859 ± 0,012 | 0,857 ± 0,012 | 0,882 ± 0,015 | −0,002 | 0,825 | **+0,023 (+0,003 s.d. +0,043)** | 0,040 | **+0,024 (+0,005 s.d. +0,044)** | 0,032 |
+
+Per seed:
+
+| Seed | F1 F1(std) | F2 F1(std) | F3 F1(std) | F1 FPR | F2 FPR | F3 FPR | F1 HR@1 bersyarat | F2 HR@1 bersyarat | F3 HR@1 bersyarat |
+|---|---|---|---|---|---|---|---|---|---|
+| 42 | 0,847 | 0,853 | 0,887 | 0,44 | 0,48 | 0,21 | 0,871 | 0,848 | 0,858 |
+| 7 | 0,851 | 0,810 | 0,909 | 0,46 | 0,60 | 0,20 | 0,841 | 0,861 | 0,896 |
+| 123 | 0,834 | 0,821 | 0,889 | 0,50 | 0,52 | 0,29 | 0,869 | 0,844 | 0,890 |
+| 31 | 0,811 | 0,856 | 0,854 | 0,59 | 0,45 | 0,46 | 0,854 | 0,856 | 0,886 |
+| 2026 | 0,803 | 0,853 | 0,784 | 0,67 | 0,39 | 0,66 | 0,860 | 0,876 | 0,878 |
+
+### 11.3 Efisiensi
+
+| Ukuran | F1 | F2 | F3 |
+|---|---|---|---|
+| Parameter total | 68.650 | 59.370 (−13,5%) | 86.954 (+26,7%) |
+| Detik/epoch (n = 5) | 125 | 125 | 127 |
+| Inferensi (ms/jendela, rata-rata 5 run) | 0,889 | 0,893 | 0,916 |
+| Memori puncak (MB) | 5.105 | 5.103 | 5.105 |
+
+Parameter di T = 30 sedikit lebih banyak dari T = 10 (F1 66.050) karena sebagian lapisan bergantung pada panjang jendela. Parameter fusion sama dengan T = 10. Seperti di T = 10, tambahan parameter F3 tidak terlihat pada waktu latih maupun memori, dan inferensi hanya naik sekitar 3%, masih di dalam derau pengukuran.
+
+### 11.4 Pembacaan
+
+1. **F1 dan F2 tidak bisa dibedakan di T = 30.** Semua selisih F2 − F1 di bawah ±0,02. Petunjuk tipis di T = 10, yaitu F2 lebih tinggi di F1(std) (+0,043, bagian 9.3), tidak muncul lagi (+0,009). Ini menguatkan bacaan di bagian 9.5 bahwa petunjuk itu kemungkinan kebetulan.
+2. **F3 cenderung lebih sedikit alarm palsu, tetapi belum terbukti.** Rata-rata FPR 0,36 vs 0,53 (F1) dan Precision +0,073. Sebarannya besar: tiga seed punya FPR 0,20–0,29, sedangkan seed 2026 0,66, setara F1 yang paling buruk. Seperti di T = 10, deteksi F3 adalah yang paling tidak stabil antar seed (sd F1(std) 0,049 vs 0,021). Levene belum lolos (p = 0,46 untuk F1(std), 0,35 untuk FPR).
+3. **Satu-satunya selisih yang lolos adalah HR@1 bersyarat F3**, sekitar +0,02 terhadap F1 dan F2. Ukuran ini menilai ketepatan lokalisasi pada gangguan yang terdeteksi. F3 lebih tinggi dari F1 di 4 dari 5 seed (kecuali seed 42). Selisihnya kecil, dan dari 24 perbandingan di tabel 11.2, 1–2 bisa lolos karena kebetulan. Jadi ini petunjuk.
+4. **HR@1 biasa setara** karena dua efek saling meniadakan: Recall F3 sedikit lebih rendah (−0,021), sementara HR@1 bersyaratnya lebih tinggi (+0,023).
+5. **Mekanismenya berbeda dari T = 10.** Di T = 10, HR@1 F3 lebih tinggi karena Recall lebih tinggi, sementara HR@1 bersyaratnya sama (bagian 10.2). Di T = 30 kebalikannya. Yang konsisten di kedua T hanyalah **arah**: tidak ada ukuran di mana F3 lebih buruk dari F1 secara berarti. Jalur keunggulannya tidak konsisten, jadi belum ada penjelasan mekanistis yang bisa dipegang.
+
+### 11.5 Perbandingan dengan T = 10 (`within_event`)
+
+| Selisih (CI 95% Welch) | T = 10 F1(std) | T = 30 F1(std) | T = 10 HR@1(std) | T = 30 HR@1(std) | T = 10 HR@1 bersyarat | T = 30 HR@1 bersyarat |
+|---|---|---|---|---|---|---|
+| F2 − F1 | **+0,043** | +0,009 | +0,030 | −0,005 | +0,014 | −0,002 |
+| F3 − F1 | +0,045 | +0,035 | **+0,042** | +0,004 | +0,006 | **+0,023** |
+| F3 − F2 | +0,002 | +0,026 | +0,011 | +0,009 | −0,008 | **+0,024** |
+
+- Di T = 30, selisih antar fusion **lebih kecil** dari selisih antar T. Ketiga fusion naik F1(std) +0,07 s.d. +0,10 dari T = 10 F1 (CI tidak memuat 0, `Perbandingan_Seluruh_Eksperimen.md` bagian 3.1), sedangkan selisih fusion terbesar di T = 30 adalah +0,035. Untuk deteksi, panjang jendela lebih berpengaruh daripada pilihan fusion.
+- Untuk HR@1(std), T = 30 mempersempit selisih antar fusion: di T = 10 rentangnya 0,814–0,856, di T = 30 hanya 0,828–0,837. Dengan jendela panjang, ketiga fusion melokalisasi hampir sama baiknya.
+- Dua tanda tebal di T = 10 (F2 − F1 F1(std), F3 − F1 HR@1) tidak berulang di T = 30, dan tanda tebal di T = 30 (HR@1 bersyarat) tidak ada di T = 10. Tidak ada satu pun selisih fusion yang lolos di kedua T. Ini konsisten dengan dugaan bahwa selisih fusion yang lolos sejauh ini sebagian besar adalah derau dari banyaknya perbandingan.
+
+### 11.6 Kesimpulan sementara (T = 30 `within_event` saja)
+
+Kalimat yang aman: **di T = 30 `within_event`, F1, F2, dan F3 setara untuk deteksi dan lokalisasi. F3 cenderung lebih sedikit alarm palsu (tidak terbukti, sangat bergantung seed) dan sedikit lebih tepat melokalisasi gangguan yang terdeteksi (HR@1 bersyarat +0,02, tipis). Keunggulan F3 atas F1 di T = 10 tidak berulang dalam bentuk yang sama.** Hasil `leave_event_out` T = 30 ada di bagian 12, dan kesimpulan T = 30 secara utuh di bagian 12.6.
+
+Keterbatasan bagian 10.6 tetap berlaku. Tambahannya: Test `within_event` T = 30 berbeda dari Test T = 10 (jumlah dan komposisi jendela), sehingga tabel 11.5 membandingkan pola, bukan angka absolut.
+
+## 12. Fusion di T = 30, `leave_event_out` (25 November, n = 5)
+
+### 12.1 Apa yang dijalankan
+
+Pengaturan sama dengan bagian 11, kecuali skema `leave_event_out` dan **30 epoch**. Alasannya ada di `Perbandingan_Seluruh_Eksperimen.md` bagian 5.8: di skema ini Val masih naik sampai epoch 29. Ketiga fusion memakai 30 epoch, jadi perbandingan antar fusion tetap adil. Perbandingan dengan T = 10 (15 epoch) tidak setara (bagian 12.5).
+
+14 run baru (24 November 14.03 sampai 25 November 07.45, tanpa error, keluaran `grid_T30_30ep_leo.out`). F1 seed 42 diambil dari run cek epoch (`14f5c50b`) dan dilewati otomatis oleh `run_grid.sh`.
+
+| Fusion | seed 42 | seed 7 | seed 123 | seed 31 | seed 2026 |
+|---|---|---|---|---|---|
+| F1 `concat_glu` | `14f5c50b`, 29 | `976904d0`, 14 | `6eb3da64`, 29 | `82bb4aff`, 24 | `1ac664fe`, 9 |
+| F2 `concat_fc` | `e1573c26`, 29 | `96f409f0`, 9 | `00500951`, 24 | `ab9e6771`, 24 | `27d97dfc`, 29 |
+| F3 `gmu` | `089479dd`, 29 | `e58b4816`, 29 | `6d0986d0`, 24 | `9550e53b`, 29 | `b2b1a70e`, 19 |
+
+Isi sel: hash run, epoch terpilih. Perintah:
+
+```bash
+DATA_NAME=A1_T30 nohup pipeline/run_grid.sh leave_event_out 30 "42 7 123 31 2026" "concat_glu concat_fc gmu" > grid_T30_30ep_leo.out 2>&1 &
+work/envs/train312/bin/python -I pipeline/banding_fusion.py 30 30 leave_event_out
+```
+
+### 12.2 Hasil (n = 5)
+
+Test `leave_event_out` T = 30: 16.932 jendela gangguan dan 9.880 normal. Selisih dan CI dihitung seperti bagian 9.2. **Tebal** artinya CI tidak memuat 0. Dengan 5 lawan 5 nilai, p terkecil yang mungkin pada uji permutasi adalah 2/252 = 0,008. Nilai itu berarti kelima nilai satu kelompok semuanya di atas (atau di bawah) kelima nilai kelompok lain.
+
+| Ukuran | F1 | F2 | F3 | F2 − F1 (CI) | p | F3 − F1 (CI) | p | F3 − F2 (CI) | p |
+|---|---|---|---|---|---|---|---|---|---|
+| F1(std) | 0,849 ± 0,039 | 0,850 ± 0,041 | 0,910 ± 0,020 | +0,001 (−0,058 s.d. +0,059) | 0,960 | **+0,061 (+0,013 s.d. +0,109)** | 0,016 | **+0,060 (+0,010 s.d. +0,110)** | 0,024 |
+| Precision(std) | 0,784 ± 0,033 | 0,772 ± 0,059 | 0,872 ± 0,024 | −0,012 | 0,738 | **+0,089 (+0,046 s.d. +0,131)** | 0,008 | **+0,101 (+0,028 s.d. +0,173)** | 0,008 |
+| Recall(std) | 0,928 ± 0,052 | 0,949 ± 0,041 | 0,952 ± 0,026 | +0,022 | 0,492 | +0,024 (−0,040 s.d. +0,089) | 0,429 | +0,003 | 0,905 |
+| HR@1(std) | 0,560 ± 0,064 | 0,591 ± 0,081 | 0,599 ± 0,063 | +0,031 (−0,076 s.d. +0,138) | 0,508 | +0,039 (−0,054 s.d. +0,131) | 0,365 | +0,008 (−0,099 s.d. +0,114) | 0,849 |
+| HR@3(std) | 0,651 ± 0,034 | 0,722 ± 0,083 | 0,750 ± 0,058 | +0,070 (−0,031 s.d. +0,172) | 0,135 | **+0,099 (+0,026 s.d. +0,171)** | 0,008 | +0,028 | 0,540 |
+| NDCG@3(std) | 0,614 ± 0,046 | 0,669 ± 0,081 | 0,687 ± 0,060 | +0,055 | 0,238 | +0,072 (−0,006 s.d. +0,151) | 0,079 | +0,017 | 0,706 |
+| FPR (turunan) | 0,439 ± 0,068 | 0,492 ± 0,171 | 0,240 ± 0,050 | +0,053 (−0,155 s.d. +0,262) | 0,619 | **−0,199 (−0,287 s.d. −0,111)** | 0,008 | **−0,252 (−0,461 s.d. −0,043)** | 0,008 |
+| HR@1 bersyarat | 0,603 ± 0,052 | 0,624 ± 0,091 | 0,629 ± 0,062 | +0,021 | 0,683 | +0,026 (−0,059 s.d. +0,110) | 0,500 | +0,005 | 0,921 |
+
+Per seed:
+
+| Seed | F1 F1(std) | F2 F1(std) | F3 F1(std) | F1 FPR | F2 FPR | F3 FPR | F1 HR@1 | F2 HR@1 | F3 HR@1 | F1 HR@1 bersyarat | F2 HR@1 bersyarat | F3 HR@1 bersyarat |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 42 | 0,787 | 0,851 | 0,903 | 0,51 | 0,34 | 0,20 | 0,507 | 0,646 | 0,591 | 0,604 | 0,729 | 0,645 |
+| 7 | 0,851 | 0,860 | 0,879 | 0,42 | 0,49 | 0,33 | 0,478 | 0,487 | 0,587 | 0,518 | 0,502 | 0,630 |
+| 123 | 0,872 | 0,789 | 0,921 | 0,39 | 0,76 | 0,21 | 0,609 | 0,556 | 0,545 | 0,641 | 0,590 | 0,568 |
+| 31 | 0,847 | 0,903 | 0,923 | 0,51 | 0,36 | 0,23 | 0,622 | 0,695 | 0,565 | 0,652 | 0,699 | 0,579 |
+| 2026 | 0,890 | 0,848 | 0,925 | 0,36 | 0,51 | 0,23 | 0,586 | 0,574 | 0,707 | 0,603 | 0,601 | 0,724 |
+
+### 12.3 Efisiensi
+
+| Ukuran | F1 | F2 | F3 |
+|---|---|---|---|
+| Parameter total | 68.650 | 59.370 (−13,5%) | 86.954 (+26,7%) |
+| Detik/epoch (n = 5) | 158 (144 tanpa seed 42) | 143 | 145 |
+| Waktu per run (30 epoch) | ±75 menit | ±75 menit | ±76 menit |
+| Inferensi (ms/jendela) | 0,877 (4 run, tanpa seed 42) | 0,879 | 0,897 |
+| Memori puncak (MB) | 5.314 | 5.314 | 5.315 |
+
+F1 seed 42 berasal dari run cek epoch yang berjalan sekitar 50% lebih lambat (215 s/epoch, inferensi 1,41 ms), kemungkinan karena mode daya laptop (`Perbandingan_Seluruh_Eksperimen.md` bagian 5.8). Kalau run itu dikeluarkan, ketiga fusion sama cepatnya. Tambahan parameter F3 (+27%) hanya menambah sekitar 2% pada inferensi, sama seperti di T = 10 dan T = 30 `within_event`.
+
+### 12.4 Pembacaan
+
+1. **F3 lebih baik dari F1 dan F2 untuk deteksi, dan kali ini jelas.** F1(std) F3 lebih tinggi dari F1 dan dari F2 di kelima seed, dan CI kedua selisih tidak memuat 0. Di T = 10 dan di T = 30 `within_event`, F3 belum pernah terbukti lebih baik dari F2 pada ukuran utama.
+2. **Sumbernya alarm palsu, bukan gangguan yang terlewat.** Recall ketiga fusion hampir sama (0,93–0,95). Yang berbeda adalah Precision (+0,09 sampai +0,10) dan FPR. FPR tertinggi F3 (0,33, seed 7) masih di bawah FPR terendah F1 (0,36, seed 2026). Artinya, pada event yang belum pernah dilihat, F3 jauh lebih jarang menandai jendela normal sebagai gangguan. Polanya sama dengan T = 10 `leave_event_out` (Precision +0,073, FPR −0,164, bagian 10.3), tetapi sekarang lebih besar dan juga berlaku terhadap F2.
+3. **Lokalisasi tidak berbeda.** HR@1(std) dan HR@1 bersyarat ketiga fusion tidak bisa dibedakan, dan sebaran antar seed (sd 0,06–0,09) lebih besar dari selisihnya (≤0,04). HR@3 F3 lebih tinggi dari F1 (+0,099, p = 0,008), tetapi tidak dari F2 (+0,028). F2 juga lebih tinggi dari F1 di HR@3 (+0,070, belum terbukti). Jadi yang terlihat mungkin F1 yang lemah di HR@3 pada kondisi ini (sd F1 hanya 0,034), bukan keunggulan khas F3. Ini dibaca sebagai petunjuk.
+4. **F2 setara F1 di semua ukuran** (semua p ≥ 0,13). Ini sama dengan T = 10 dan T = 30 `within_event`. Membuang GLU tidak mengubah hasil.
+5. **F3 tampak lebih stabil, tetapi belum terbukti.** sd F1(std) F3 0,020 vs 0,039 (F1) dan 0,041 (F2), dan sd FPR 0,050 vs 0,068 dan 0,171. Levene belum lolos (p = 0,41 terhadap F1, 0,47 terhadap F2 untuk F1(std)). Pola yang sama terlihat di T = 10 `leave_event_out` (sd 0,014 vs 0,047).
+6. **Soal banyaknya perbandingan.** 7 dari 24 selisih di tabel 12.2 lolos. Bila semuanya nol sebenarnya, yang lolos karena kebetulan kira-kira 1–2. Jadi 7 jauh di atas itu. Tetapi F1(std), Precision, dan FPR mengukur gejala yang sama (alarm palsu), sehingga ketujuhnya lebih tepat dihitung sebagai **satu temuan kuat** (F3 mengurangi alarm palsu, terhadap F1 dan F2) **ditambah satu petunjuk** (HR@3 terhadap F1).
+
+### 12.5 Perbandingan dengan T = 10 (`leave_event_out`)
+
+| Selisih (CI 95% Welch) | T = 10 F1(std) | T = 30 F1(std) | T = 10 FPR | T = 30 FPR | T = 10 HR@1(std) | T = 30 HR@1(std) | T = 10 HR@1 bersyarat | T = 30 HR@1 bersyarat |
+|---|---|---|---|---|---|---|---|---|
+| F2 − F1 | +0,024 | +0,001 | −0,110 | +0,053 | −0,049 | +0,031 | −0,050 | +0,021 |
+| F3 − F1 | **+0,059** | **+0,061** | **−0,164** | **−0,199** | +0,023 | +0,039 | +0,004 | +0,026 |
+| F3 − F2 | +0,035 | **+0,060** | −0,054 | **−0,252** | +0,072 | +0,008 | +0,054 | +0,005 |
+
+- **F3 − F1 di F1(std) dan FPR lolos di kedua T, dengan besar yang hampir sama** (+0,06; −0,16 dan −0,20). Ini selisih fusion pertama yang berulang lintas T. Pernyataan di bagian 11.5 ("tidak ada selisih fusion yang lolos di kedua T") sekarang hanya berlaku untuk `within_event`.
+- F3 − F2 baru lolos di T = 30. Di T = 10 arahnya sama tetapi belum terbukti, karena F2 di T = 10 sendiri sudah sedikit lebih rendah FPR-nya dari F1 (−0,110). Di T = 30, F2 tidak lagi lebih baik dari F1.
+- Lokalisasi tidak membaik di kedua T, untuk fusion mana pun.
+- Angka absolut antar T **tidak setara**: epoch berbeda (15 vs 30) dan Test berbeda. Sebagai gambaran saja, HR@1(std) T = 30 tidak lebih tinggi dari T = 10 (F1 0,560 vs 0,582; F3 0,599 vs 0,605), sedangkan F1(std) lebih tinggi (F3 0,910 vs 0,858).
+- Di `within_event` T = 30, arah FPR sama (F3 0,36 vs F1 0,53), tetapi tidak terbukti karena sebaran seed F3 besar (0,20–0,66, bagian 11.4). Jadi pengurangan alarm palsu oleh F3 **terbukti di skema event baru dan searah di skema event yang sama**.
+
+### 12.6 Kesimpulan T = 30 (kedua skema) dan dampaknya pada pertanyaan penelitian
+
+Kalimat yang aman:
+
+- **Di `leave_event_out`, F3 (GMU) mendeteksi gangguan lebih baik dari F1 dan F2. Penyebabnya alarm palsu yang jauh lebih sedikit (FPR T = 30: 0,24 vs 0,44 dan 0,49, di kelima seed). Terhadap F1, pengurangan ini muncul di T = 10 dan T = 30 dengan besar yang hampir sama.**
+- **Lokalisasi (HR@1) tidak berbeda antar fusion, di T dan skema mana pun.**
+- **F2 setara F1 di semua kondisi yang diuji (2 T × 2 skema).**
+- Di `within_event`, ketiga fusion setara. Keunggulan F3 hanya tampak sebagai arah (FPR lebih rendah, HR@1 bersyarat +0,02).
+
+Dampak pada dua pertanyaan F1 → F2 → F3:
+
+1. **Apakah gate diperlukan?** Tidak terlihat. Membuang GLU (F2) tidak mengubah deteksi maupun lokalisasi.
+2. **Di mana gate diletakkan?** Gate per modalitas (F3) membantu **deteksi pada event baru**, lewat alarm palsu yang lebih sedikit. Gate per modalitas tidak membantu lokalisasi.
+
+Penjelasan yang masuk akal: gate per modalitas memungkinkan model mengecilkan modalitas yang "ramai" pada jendela normal sebelum digabung, sehingga skor anomali tidak ikut naik. Ini **dugaan**. Nilai gate (`last_gates`) belum dianalisis, jadi belum diketahui modalitas mana yang dikecilkan.
+
+### 12.7 Keterbatasan
+
+1. **Mungkin belum konvergen.** Epoch 29 (evaluasi terakhir) terpilih di 3 dari 5 run F3, 2 run F1, dan 2 run F2. Val masih naik, jadi angka bisa bergeser dengan epoch lebih banyak. Test hanya tercatat pada epoch yang Val-nya menjadi rekor baru, sehingga perbandingan pada epoch tetap tidak bisa dihitung ulang dari log. Seperti di bagian 9.4, Val `leave_event_out` juga tidak meramalkan Test dengan baik, jadi epoch yang terpilih pun sebagian acak.
+2. **Kapasitas bercampur dengan arsitektur.** F3 punya 27% parameter lebih banyak dari F1. F2 (14% lebih sedikit) setara F1, jadi berkurangnya kapasitas tidak merugikan. Namun belum diuji apakah F1 yang diperbesar sampai kapasitas F3 juga mengurangi alarm palsu. Tanpa uji itu, keunggulan F3 belum bisa dikaitkan khusus pada gate per modalitas.
+3. **Tidak setara dengan T = 10** (30 vs 15 epoch, Test berbeda). Tabel 12.5 membandingkan pola selisih, bukan angka absolut.
+4. **Satu pembagian event.** Seed hanya mengubah inisialisasi dan urutan batch. Hasil ini belum tentu berlaku untuk pilihan event Test yang lain.
+5. Keterbatasan bagian 10.6 (nilai gate belum dianalisis, tidak ada analisis per jenis gangguan) tetap berlaku.
+
 ---
 
 ## Lampiran. Berkas terkait
@@ -513,4 +708,6 @@ Kalimat yang aman: **dengan 5 seed, GMU (F3) setara atau sedikit lebih baik dari
 | `docs/F3_GMU.md` | Dokumentasi F3: rumus, kecocokan dengan paper dan kode resmi, efisiensi, hasil lengkap |
 | `pipeline/banding_fusion.py` | Rekap F1/F2/F3 (FPR, HR@1 bersyarat, CI Welch, uji permutasi) |
 | `grid_gmu.out` | Keluaran grid F3 |
+| `grid_T30_15ep_we.out` | Keluaran grid F1/F2/F3 T = 30 `within_event` (bagian 11) |
+| `grid_T30_30ep_leo.out` | Keluaran grid F1/F2/F3 T = 30 `leave_event_out`, 30 epoch (bagian 12) |
 | `Eadro/codes/base.py` | Fungsi `evaluate()`, termasuk definisi metrik (std) |
