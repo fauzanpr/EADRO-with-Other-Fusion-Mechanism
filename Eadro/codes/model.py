@@ -158,7 +158,7 @@ class LogModel(nn.Module):
 # way the three sources are combined differs; the graph model and the heads downstream are untouched.
 # The released fusion ("concat_glu") stays inline in MultiSourceEncoder (same parameter names as before).
 # ---------------------------------------------------------------------------------------------------------------
-FUSIONS = ["concat_glu", "concat_fc", "sum", "attn", "lmf", "gmu"]
+FUSIONS = ["concat_glu", "concat_fc", "sum", "attn", "lmf", "gmu", "concat_glu_wide"]
 
 class ConcatFC(nn.Module):
     """concat -> Linear -> ReLU: the released fusion without the GLU gate."""
@@ -234,8 +234,23 @@ class GatedMultimodalUnit(nn.Module):
         self.last_gates = z.detach()
         return (z * h).sum(dim=1)                                                                 #[N, out_dim]
 
+class ConcatGLUWide(nn.Module):
+    """Capacity-matched ablation of the released fusion (F1): concat -> Linear(hidden) -> ReLU -> Linear(2*out) -> GLU.
+    Same GLU output stage as concat_glu (one gate shared by all sources, applied after mixing); only an extra hidden
+    layer is added so the fusion has about as many parameters as gmu (hidden=135: 36,983 vs 36,864 at fuse_in=144).
+    The ReLU is needed: without it the two Linear layers collapse into one low-rank Linear, i.e. no extra capacity."""
+    def __init__(self, dims, out_dim, hidden=135, **kwargs):
+        super(ConcatGLUWide, self).__init__()
+        self.hidden = nn.Linear(sum(dims), hidden)
+        self.fuse = nn.Linear(hidden, 2 * out_dim)
+        self.activate = nn.GLU()
+
+    def forward(self, trace, log, metric):
+        x = torch.relu(self.hidden(torch.cat((trace, log, metric), dim=-1)))
+        return self.activate(self.fuse(x))
+
 FUSION_MODULES = {"concat_fc": ConcatFC, "sum": SumFusion, "attn": ModalityAttention, "lmf": LowRankFusion,
-                  "gmu": GatedMultimodalUnit}
+                  "gmu": GatedMultimodalUnit, "concat_glu_wide": ConcatGLUWide}
 
 class MultiSourceEncoder(nn.Module):
     def __init__(self, event_num, metric_num, node_num, device, log_dim=64, fuse_dim=64, alpha=0.5, fusion="concat_glu", **kwargs):

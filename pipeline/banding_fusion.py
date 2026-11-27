@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Bandingkan F1 (concat_glu), F2 (concat_fc), F3 (gmu): F2-F1, F3-F1, F3-F2.
+Bila ada run concat_glu_wide (F1w, F1 diperbesar setara F3), ditambah F1w-F1 dan F3-F1w.
 
 Pakai (dari akar proyek):  work/envs/train312/bin/python -I pipeline/banding_fusion.py [T] [epoch] [skema,...]
 Default: T = 10, 15 epoch, within_event,leave_event_out. Contoh: ... banding_fusion.py 30 15 within_event
@@ -15,7 +16,7 @@ T = int(sys.argv[1]) if len(sys.argv) > 1 else 10
 EP = int(sys.argv[2]) if len(sys.argv) > 2 else 15
 SCHEMES = sys.argv[3].split(",") if len(sys.argv) > 3 else ["within_event", "leave_event_out"]
 print("T = %d, %d epoch, skema %s" % (T, EP, SCHEMES))
-runs = [r for r in R.load() if r["T"] == T and r["epochs"] == EP and r["scheme"] in SCHEMES]
+runs = [r for r in R.load() if r["T"] == T and r["epochs"] == EP and r["scheme"] in SCHEMES and r["sel"] == "combo"]
 cnt = {}
 for sc in SCHEMES:
     d = pickle.load(open("work/chunks/%s/%s/chunk_test.pkl" % ("A1" if T == 10 else "A1_T%d" % T, sc), "rb"))
@@ -34,6 +35,10 @@ def perm(a, b):
         tot += 1; c += abs(st.mean(B) - st.mean(A)) >= abs(obs) - 1e-12
     return c / tot
 F = {"concat_glu": "F1", "concat_fc": "F2", "gmu": "F3"}
+PAIRS = [("concat_glu", "concat_fc"), ("concat_glu", "gmu"), ("concat_fc", "gmu")]
+if any(r["fusion"] == "concat_glu_wide" for r in runs):  # ablasi kapasitas: F1 diperbesar setara F3
+    F["concat_glu_wide"] = "F1w"
+    PAIRS += [("concat_glu", "concat_glu_wide"), ("concat_glu_wide", "gmu")]
 for sc in SCHEMES:
     print("\n##", sc)
     D = {}
@@ -43,7 +48,7 @@ for sc in SCHEMES:
         print(F[f], "seeds", [r["seed"] for r in rs], "ep", [r["ep"] for r in rs], "s/epoch %.0f" % st.mean(r["sec"] for r in rs))
     for m in ["F1", "Pre", "Rec", "HR1", "HR3", "NDCG3", "FPR", "HR1c"]:
         row = [m] + ["%.3f±%.3f" % (st.mean(x[m] for x in D[f]), st.stdev(x[m] for x in D[f])) for f in F]
-        for base, new in (("concat_glu", "concat_fc"), ("concat_glu", "gmu"), ("concat_fc", "gmu")):
+        for base, new in PAIRS:
             a = [x[m] for x in D[base]]; b = [x[m] for x in D[new]]
             dd, lo, hi = R.welch(a, b)[:3]
             row.append("%s-%s %+.3f [%+.3f,%+.3f]%s p=%.3f" % (F[new], F[base], dd, lo, hi, " *" if lo > 0 or hi < 0 else "", perm(a, b)))

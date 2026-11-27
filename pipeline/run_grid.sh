@@ -35,7 +35,7 @@ for seed in $SEEDS; do
     [[ "$DATA_NAME" == "A1" ]] || key="$DATA_NAME $key"
     if grep -qxF "$key" "$DONE"; then echo "[$n/$total] lewati (sudah selesai): $key"; continue; fi
     echo "[$n/$total] mulai $(date '+%F %T'): fusion=$fusion seed=$seed"
-    "$HERE/run_train.sh" "$SCHEME" "$seed" "$EPOCHS" --fusion "$fusion" "$@" 2>&1 | grep -E "^Skema|Best result|Efficiency|Current hash_id|Traceback|Error"
+    "$HERE/run_train.sh" "$SCHEME" "$seed" "$EPOCHS" --fusion "$fusion" "$@" 2>&1 | grep --line-buffered -E "^Skema|Best result|Efficiency|Current hash_id|Traceback|Error"
     status=${PIPESTATUS[0]}   # status run_train.sh, bukan grep
     if [[ $status -eq 0 ]]; then echo "$key" >> "$DONE"; else echo "  GAGAL (kode $status): $key"; fi
   done

@@ -1,0 +1,26 @@
+[1/5] mulai 2026-11-25 22:07:06: fusion=concat_glu_wide seed=42
+Skema=within_event data=A1 seed=42 epoch=15 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-25 22:07:06
+2026-11-25 22:21:50,956 P391460 INFO * Best result got at epoch 9 with validation combo: 0.9319
+2026-11-25 22:21:51,326 P391460 INFO Efficiency -- params_total: 84473, params_fusion: 36983, infer_ms_per_window: 0.2749, peak_rss_mb: 2752
+2026-11-25 22:21:51,326 P391460 INFO Current hash_id 5a627171
+[2/5] mulai 2026-11-25 22:21:52: fusion=concat_glu_wide seed=7
+Skema=within_event data=A1 seed=7 epoch=15 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-25 22:21:52
+2026-11-25 22:36:38,254 P391539 INFO * Best result got at epoch 9 with validation combo: 0.9668
+2026-11-25 22:36:38,627 P391539 INFO Efficiency -- params_total: 84473, params_fusion: 36983, infer_ms_per_window: 0.2761, peak_rss_mb: 2752
+2026-11-25 22:36:38,627 P391539 INFO Current hash_id 26470543
+[3/5] mulai 2026-11-25 22:36:39: fusion=concat_glu_wide seed=123
+Skema=within_event data=A1 seed=123 epoch=15 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-25 22:36:39
+2026-11-25 22:51:30,928 P391627 INFO * Best result got at epoch 14 with validation combo: 0.9797
+2026-11-25 22:51:31,298 P391627 INFO Efficiency -- params_total: 84473, params_fusion: 36983, infer_ms_per_window: 0.2746, peak_rss_mb: 2752
+2026-11-25 22:51:31,298 P391627 INFO Current hash_id eeef59a4
+[4/5] mulai 2026-11-25 22:51:31: fusion=concat_glu_wide seed=31
+Skema=within_event data=A1 seed=31 epoch=15 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-25 22:51:32
+2026-11-25 23:07:04,816 P391704 INFO * Best result got at epoch 14 with validation combo: 0.9422
+2026-11-25 23:07:05,185 P391704 INFO Efficiency -- params_total: 84473, params_fusion: 36983, infer_ms_per_window: 0.2738, peak_rss_mb: 2752
+2026-11-25 23:07:05,186 P391704 INFO Current hash_id cc6edef8
+[5/5] mulai 2026-11-25 23:07:05: fusion=concat_glu_wide seed=2026
+Skema=within_event data=A1 seed=2026 epoch=15 | hasil -> /home/ojan/AI Labs/EADRO - APDM/work/result | 2026-11-25 23:07:05
+2026-11-25 23:21:16,001 P391811 INFO * Best result got at epoch 4 with validation combo: 0.9560
+2026-11-25 23:21:16,364 P391811 INFO Efficiency -- params_total: 84473, params_fusion: 36983, infer_ms_per_window: 0.2698, peak_rss_mb: 2752
+2026-11-25 23:21:16,365 P391811 INFO Current hash_id 8d78dd3b
+Selesai 2026-11-25 23:21:17

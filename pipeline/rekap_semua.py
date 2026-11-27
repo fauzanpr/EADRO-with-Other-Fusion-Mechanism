@@ -66,7 +66,7 @@ def welch(a, b):
 
 def name(k):
     scheme, epochs, sel, T, fusion = k
-    return "T=%d %s" % (T, {"concat_glu": "F1", "concat_fc": "F2", "gmu": "F3"}.get(fusion, fusion))
+    return "T=%d %s" % (T, {"concat_glu": "F1", "concat_fc": "F2", "gmu": "F3", "concat_glu_wide": "F1w"}.get(fusion, fusion))
 
 
 def main():
